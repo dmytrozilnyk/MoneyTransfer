@@ -22,10 +22,7 @@ import { AngularFireModule } from 'angularfire2';
 import { ApiClientService } from '../client/index';
 import { config } from './app.firebaseconfig';
 
-import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
-import { TranslateModule } from '@ngx-translate/core';
-import { TranslateLoader } from '@ngx-translate/core';
 
 import { IonicStorageModule } from '@ionic/storage';
 
@@ -34,10 +31,6 @@ import { Camera } from '@ionic-native/camera';
 import { ImagePicker } from '@ionic-native/image-picker';
 import { Base64 } from '@ionic-native/base64';
 
-
-export function createTranslateLoader(http: HttpClient) {
-  return new TranslateHttpLoader(http, './assets/i18n/', '.json');
-}
 
 @NgModule({
   declarations: [
@@ -59,13 +52,6 @@ export function createTranslateLoader(http: HttpClient) {
     IonicModule.forRoot(MyApp,{
       scrollAssist: false,
       autoFocusAssist: false
-      }),
-      TranslateModule.forRoot({
-        loader: {
-          provide: TranslateLoader,
-          useFactory: (createTranslateLoader),
-          deps: [HttpClient]
-        }
       }),
       AngularFireModule.initializeApp(config),
       HttpClientModule,

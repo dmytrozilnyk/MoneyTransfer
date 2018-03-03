@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { TranslateService } from '@ngx-translate/core';
 import { LoginPage } from '../login/login';
 import { HomePage } from './home/home';
 import { FriendsPage } from './friends/friends';
@@ -28,12 +27,8 @@ export class TabsPage {
   tab4Title = " ";
   tab5Title = " ";
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public translateService: TranslateService,public events: Events) {
-    /*translateService.get(['TAB1_TITLE', 'TAB2_TITLE', 'TAB3_TITLE']).subscribe(values => {
-      this.tab1Title = values['TAB1_TITLE'];
-      this.tab2Title = values['TAB2_TITLE'];
-      this.tab3Title = values['TAB3_TITLE'];
-    });*/
+  constructor(public navCtrl: NavController, public navParams: NavParams,public events: Events) {
+
   }
 
   ionViewDidLoad() {
