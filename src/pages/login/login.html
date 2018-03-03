@@ -1,0 +1,24 @@
+<ion-content class="background">
+    <ion-card>
+      <ion-card-header>
+        Iniciar sesión
+      </ion-card-header>
+      <ion-card-content>
+        <ion-list lo-line>
+          <ion-item>
+            <ion-input style="border-radius: 6px;" type="email" [(ngModel)]="email" placeholder="Correo electrónico"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-input style="border-radius: 6px;" type="password" [(ngModel)]="password" placeholder="Contraseña"></ion-input>
+          </ion-item>
+          <a (click)="setPassword()">¿Has olvidado tu contraseña?</a>
+          <button ion-button block color="light" (click)="login()"> Entrar</button>
+          <a>ó</a>
+          <button ion-button block color="azul" (click)="loginWithFacebook()">
+            <ion-icon name="logo-facebook"></ion-icon> Entrar con Facebook
+          </button>
+        </ion-list>
+      </ion-card-content>
+    </ion-card>
+    <button ion-button clear full (click)="registry()" class="bottomBoton" color="light"><p class="colorText">¿No tienes cuenta? Regístrate</p></button>
+</ion-content>

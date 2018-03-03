@@ -1,0 +1,20 @@
+page-tabs {
+
+    .tabs .tabbar {
+        background: rgba(40,58,72,0.9) !important;
+        border-top:0;
+    }
+    .tabs .tab-button-icon::before {
+        vertical-align: top;
+        color: rgb(42, 236, 193) !important;
+    }
+
+    .tabs .tab-button[aria-selected=true] {
+        background-color: white;
+    }
+
+    .tabs .tab-button-icon [aria-selected=true] ::before{
+        vertical-align: top;
+        color: rgba(40,58,72,0.9) !important;
+    }
+}

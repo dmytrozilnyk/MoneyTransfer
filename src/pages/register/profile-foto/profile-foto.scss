@@ -1,0 +1,70 @@
+page-profile-foto {
+
+    .background{
+        background-color: rgb(34,56,73);
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-position: center; 
+    }
+    .scroll-content{
+        align-content: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: top;
+        text-align: center;
+    }
+    .bottomBoton{
+        margin: 0;
+        padding: 0;
+        position: absolute;
+        bottom: 0;
+        background-color: rgb(42, 236, 193) !important;
+        color: rgba(40,58,72,0.9);
+    }
+    .rowTitle{
+        align-self: center;
+        text-align: center;
+        .title{
+            text-align: center;
+            color: #2aecc1 !important;
+            font-size: 100%;
+        }
+    }
+
+    .rowFoto{
+        margin-top:38%;
+    }
+    
+    img{
+        height:200px;
+        width: 200px;    
+        border-radius: 50%;
+        border: 4px solid rbga(255,255,255,0.4);
+        box-shadow: 0px 0px 142px -37px rgba(0, 0,0 , 0.75);
+        -webkit-box-shadow: 0px 0px 142px -37px rgba(0, 0,0 , 0.75);
+        -moz-box-shadow: 0px 0px 142px -37px rgba(0, 0,0 , 0.75);
+        align-items: center;
+        margin-left: 5%;
+    }
+
+    .column{
+        margin-bottom: 40%;
+        align-self: center;
+        align-items: center;
+        .imagen {
+            max-width: 100%;
+            border: 0;
+            border-width: 2px;
+            border-style: solid;
+            border-color: rgb(255, 255, 255);
+        }
+    
+        .text{
+            text-align: center;
+            color: rgb(42, 236, 193) !important;
+            margin-bottom: 2%;
+            margin-top: 1%;   
+            margin-left: 12%;     
+        }
+    }
+}

@@ -1,0 +1,17 @@
+<ion-content class="background">
+  <ion-grid no-padding>
+    <ion-row class="rowTitle">
+      <h1 class="title">Elige la foto de perfil</h1>
+    </ion-row>
+    <ion-row class="rowFoto">
+        <ion-col col-7 offset-2 class="column"> 
+            <div class="img" (click)="openMenu()">
+                <img *ngIf="!image"  class="imagen" src="assets/imgs/PersonPlaceholder.png">
+                <img [src]="image" *ngIf="image"/>
+            </div>
+            <p class="text" (click)="openMenu()">Elegir foto</p>
+        </ion-col>
+      <button ion-button full (click)="changeFoto()" class="bottomBoton" color="primary">Terminar</button>
+    </ion-row>
+  </ion-grid>
+</ion-content>

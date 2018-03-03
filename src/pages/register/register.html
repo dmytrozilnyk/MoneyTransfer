@@ -1,0 +1,45 @@
+
+<ion-content class="background">
+  <ion-grid no-padding>
+    <ion-row class="header">
+      <ion-col col-2 >
+        <ion-icon md="md-arrow-back" ios="ios-arrow-round-back" (click)="goBack()"></ion-icon>
+      </ion-col>
+      <ion-col col-2>
+        <p class="text">1/2</p>
+      </ion-col>
+    </ion-row>
+    <ion-row no-padding style="height:80%">
+      <ion-card>
+        <ion-card-header>
+            Háblanos de ti...
+        </ion-card-header>
+        <ion-card-content>
+          <ion-list lo-line>
+            <ion-item>
+              <ion-input style="border-radius: 6px;" type="text" [(ngModel)]="name" placeholder="Nombre"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-input style="border-radius: 6px;" type="text" [(ngModel)]="lastName" placeholder="Apellido"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-datetime displayFormat="DD/MMMM/YYYY" [(ngModel)]="date" placeholder="Fecha de nacimiento"></ion-datetime>
+            </ion-item>
+            <ion-item>
+              <ion-select [(ngModel)]="country" style="border-radius: 6px; width:100%" placeholder="Selecciona tú pais">
+                <ion-label>Paises</ion-label>
+                  <ion-option>España</ion-option>
+                  <ion-option>Ucrania</ion-option>
+                  <ion-option>Ecuador</ion-option>
+                  <ion-option>Francia</ion-option>
+                  <ion-option>Italia</ion-option>
+                  <ion-option>Brasil</ion-option>
+              </ion-select>
+            </ion-item>
+          </ion-list>
+        </ion-card-content>
+      </ion-card>
+      <button ion-button full (click)="goNext()" class="bottomBoton">SIGUIENTE</button>
+    </ion-row>
+  </ion-grid>
+</ion-content>

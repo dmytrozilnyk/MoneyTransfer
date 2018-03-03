@@ -1,0 +1,124 @@
+page-register {
+        .background{
+            background-color: rgb(34,56,73);
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-position: center; 
+        }
+        .scroll-content{
+            align-content: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: top;
+            text-align: center;
+        }
+
+        .header{
+            max-height:20%;
+            height: 20%;
+            ion-icon {
+                display: inline-block;
+                font-size: 3.2em;
+                color: rgb(42,236,193);
+                padding-left: 16%;
+            }
+            .text{
+                font-size: 100%;
+                margin: 0;
+                padding-top: 23%;
+                color: rgb(42,236,193);
+                padding-right: 50%;
+            }
+        }
+        ion-card.card{
+            margin-top: 15%;
+            box-shadow: none;
+            background: rgba(0,0,0,0.2);
+            border-radius: 6px;
+        }
+        .datetime-ios {
+            padding: 11px 8px 11px 0px;
+        }
+        .datetime-md {
+            padding: 11px 8px 11px 0px;
+        }
+        .select-ios{
+            padding: 11px 15px 11px 0px;
+            min-width: 100%;
+        }
+        .select-md{
+            padding: 11px 15px 11px 0px;
+            min-width: 100%;
+        }
+        .select-text {
+            color: white;
+        }
+        .datetime-text {
+            color: white;
+        }
+        a, p,
+        ion-card-header.card-header{
+            color:rgb(42, 236, 193) !important;
+        }
+        .text-input {
+            margin: 0;
+            padding: 0;
+            width: calc(100% - 8px - 8px);
+        }
+        
+        .item{
+            margin-bottom: 10px;
+            background:rgba(40,58,72,0.9);
+            border:medium none;
+            border-radius: 6px;
+            
+            .text-input,{
+                color:rgb(255, 255, 255) !important;
+            }
+        }
+        .list > .item-block:first-child{
+            border:medium none;
+        }
+        .list > .item-block:last-child{
+            border:medium none;
+        }
+        .bottomBoton{
+            margin: 0;
+            padding: 0;
+            position: absolute;
+            bottom: 0;
+            background-color: rgb(42, 236, 193) !important;
+            color: rgba(40,58,72,0.9);
+
+        }
+        .button-clear-ios-light{
+            height: 100%;
+            padding-bottom: 20px;
+        }
+        .icon{
+            padding-right: 10px;
+        }
+    }
+    
+    .toastStyle {
+        text-align:center;
+        margin-top: 0%;
+
+        .toast-wrapper {
+            left: 10px;
+            right: 10px;
+            margin: auto;
+            border-radius: 0.65rem;
+            position: absolute;
+            z-index: 10;
+            display: block;
+            max-width: 600px;
+            background-color: rgb(102, 199, 134) !important;
+          }
+    
+          .toast-message {
+            font-size: 1.4rem;
+            color: rgba(40,58,72,0.9);
+            padding: 1.5rem;
+        }
+    }

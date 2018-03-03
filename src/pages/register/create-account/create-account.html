@@ -1,0 +1,37 @@
+
+<ion-content class="background">
+  <ion-grid no-padding>
+      <ion-row class="header">
+          <ion-col col-2 >
+            <ion-icon md="md-arrow-back" ios="ios-arrow-round-back" (click)="goBack()"></ion-icon>
+          </ion-col>
+          <ion-col col-2>
+            <p class="text">2/2</p>
+          </ion-col>
+        </ion-row>
+    <ion-row no-padding style="height:80%"> 
+      <ion-card>
+          <ion-card-header>
+              Ya casi estamos...
+          </ion-card-header>
+        <ion-card-content>
+          <ion-list lo-line>
+            <ion-item>
+              <ion-input style="border-radius: 6px;" type="number" [(ngModel)]="number" placeholder="Número de teléfono"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-input style="border-radius: 6px;" type="email" [(ngModel)]="email" placeholder="Correo electrónico"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-input style="border-radius: 6px;" type="password" [(ngModel)]="password" placeholder="Contraseña"></ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-input style="border-radius: 6px;" type="password" [(ngModel)]="passwordAux" placeholder="Repite la cantraseña"></ion-input>
+            </ion-item>
+          </ion-list>
+        </ion-card-content>
+      </ion-card>
+      <button ion-button full (click)="createAccount()" class="bottomBoton" color="primary">Registrarse</button>
+    </ion-row>
+  </ion-grid>
+</ion-content>
