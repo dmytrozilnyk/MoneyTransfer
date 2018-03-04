@@ -1,0 +1,32 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>Ajustes</ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content padding>
+    <ion-item>
+        <p class="titlePersonal">Seguridad</p>
+    </ion-item>
+
+    <ion-item>
+        <ion-icon ios="ios-finger-print-outline" md="md-finger-print" color="danger" item-start></ion-icon>
+        <ion-label> TouchID</ion-label>
+        <ion-toggle checked="false" color="secondary" [(ngModel)]="seguridad"></ion-toggle>
+    </ion-item>
+    <ion-item>
+        <ion-label class="textTouchId">Al retirar saldo</ion-label>
+        <ion-checkbox color="secondary" [disabled]="!seguridad" checked="false"></ion-checkbox>
+    </ion-item>
+    <ion-item>
+        <ion-label class="textTouchId">Al cargar saldo</ion-label>
+        <ion-checkbox color="secondary" [disabled]="!seguridad" checked="false"></ion-checkbox>
+    </ion-item>
+    <ion-item>
+        <ion-label class="textTouchId">Al enviar dinero</ion-label>
+        <ion-checkbox color="secondary" [disabled]="!seguridad" checked="false"></ion-checkbox>
+    </ion-item>
+    <ion-item>
+        <ion-label class="textTouchId">Al modificar datos de usuario</ion-label>
+        <ion-checkbox color="secondary" [disabled]="!seguridad" checked="false"></ion-checkbox>
+    </ion-item>
+</ion-content>

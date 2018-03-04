@@ -16,6 +16,7 @@ import { HomePage } from '../pages/tabs/home/home';
 import { ProfilePage } from '../pages/tabs/profile/profile';
 import { TransferPage } from '../pages/tabs/transfer/transfer';
 import { ProfileFotoPage } from '../pages/register/profile-foto/profile-foto'
+import { SettingPage } from '../pages/tabs/profile/setting/setting';
 
 import { AngularFireAuth } from 'angularfire2/auth';
 import { AngularFireModule } from 'angularfire2';
@@ -45,7 +46,8 @@ import { Base64 } from '@ionic-native/base64';
     HomePage,
     ProfilePage,
     TransferPage,
-    ProfileFotoPage
+    ProfileFotoPage,
+    SettingPage
   ],
   imports: [
     BrowserModule,
@@ -70,7 +72,8 @@ import { Base64 } from '@ionic-native/base64';
     HomePage,
     ProfilePage,
     TransferPage,
-    ProfileFotoPage
+    ProfileFotoPage,
+    SettingPage
   ],
   providers: [
     StatusBar,

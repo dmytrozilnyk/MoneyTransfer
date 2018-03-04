@@ -6,6 +6,7 @@ import { Platform, ActionSheetController } from 'ionic-angular';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { ApiClientService } from '../../../client';
 import { Base64 } from '@ionic-native/base64';
+import { SettingPage } from './setting/setting';
 
 @IonicPage()
 @Component({
@@ -130,6 +131,10 @@ export class ProfilePage {
     }, (err) => { 
       console.log(<any>err)
     });
+  }
+
+  goSetting(){
+    this.navCtrl.push(SettingPage);
   }
 
   logout(){
