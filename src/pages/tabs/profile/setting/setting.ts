@@ -22,4 +22,8 @@ export class SettingPage {
 
   }
 
+  goBack(){
+    this.navCtrl.pop();
+  }
+
 }

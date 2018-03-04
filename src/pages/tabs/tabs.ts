@@ -7,6 +7,7 @@ import { TransferPage } from './transfer/transfer';
 import { CardPage } from './card/card';
 import { ProfilePage } from './profile/profile';
 import { Events } from 'ionic-angular';
+import { SettingPage } from './profile/setting/setting';
 
 
 @IonicPage()
@@ -21,14 +22,10 @@ export class TabsPage {
   tab4Root: any = CardPage;
   tab5Root: any = ProfilePage;
 
-  tab1Title = " ";
-  tab2Title = " ";
-  tab3Title = " ";
-  tab4Title = " ";
-  tab5Title = " ";
+  paginasAux:boolean;
 
   constructor(public navCtrl: NavController, public navParams: NavParams,public events: Events) {
-
+    this.paginasAux=true;
   }
 
   ionViewDidLoad() {

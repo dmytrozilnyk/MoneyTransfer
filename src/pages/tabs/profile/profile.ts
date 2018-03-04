@@ -24,6 +24,8 @@ export class ProfilePage {
   country:string;
   phoneNumber:string
 
+  isRead:boolean;
+
   loading: Loading;
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
@@ -32,9 +34,10 @@ export class ProfilePage {
     public events: Events,private _auth: AngularFireAuth,private apiBlockChain: ApiClientService,
     private base64: Base64,public loadingCtrl: LoadingController) {
       this.showInformation=false;
+      this.isRead=false;
   }
 
-  ionViewWillEnter() {
+  ionViewDidLoad() {
     var loading = this.loadingCtrl.create();
     loading.present();
     this.apiBlockChain.getUserId(this._auth.auth.currentUser.uid).subscribe(
@@ -58,8 +61,8 @@ export class ProfilePage {
       });
   }
 
-  ionViewWillLeave() {
-    this.showInformation=false;
+  changeInfo(){
+    this.isRead=true;
   }
 
   openMenu() {
