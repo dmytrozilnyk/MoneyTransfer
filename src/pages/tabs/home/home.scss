@@ -10,5 +10,65 @@ page-home {
         background-repeat: no-repeat;
         background-attachment: fixed;
         background-position: center; 
+
+        .header{
+            background: linear-gradient(to top,  rgb(34,56,73) 25%, rgb(121, 163, 194) 100%);
+            height:24% !important;
+            padding-top: 20px;
+    
+            .colText{
+                text-align: center;
+                margin-top: 18%;
+                margin-bottom: 6%;
+                
+                .text{
+                    font-size: 3.5em;
+                    color: white;
+                    text-shadow: black 0.1em 0.1em 0.2em;
+                }
+            }
+        }
+        
+    }
+    
+    .scroll-content {
+        padding: 0px !important;
+        height: 390%;
+    }
+
+    .arrows{
+        font-size: 2.4em;
+        line-height: .67;
+        pointer-events: none;
+        padding-right: 0.3em;
+        margin-right: 6%;
+    }
+    .text{
+        margin: 0%;
+        font-size: 20px;
+    }
+    .button {
+        border-radius: 4px;
+        height: 2.8em;
+        font-size: 1.6rem;
+        color: #fff;
+        background-color: #7a7d82;
+        margin: 0.4rem 0.2rem;
+        padding: 0 1em;
+    }
+    .movimiento{
+        font-size: 2.6em;
+    }
+    .arrowDetails{
+        font-size: 2em;
+        color: rgb(195, 198, 196)
+    }
+    .textAmountGreen{
+        color: #4CAF50;
+        font-weight: bold;
+    }
+    .textAmountRed{
+        color: #f44336;
+        font-weight: bold;
     }
 }

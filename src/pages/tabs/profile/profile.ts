@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, Events, Loading, LoadingController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, Events, Loading, LoadingController, App } from 'ionic-angular';
 import { Camera, CameraOptions } from '@ionic-native/camera';
 import { ImagePicker, ImagePickerOptions } from '@ionic-native/image-picker';
 import { Platform, ActionSheetController } from 'ionic-angular';
@@ -32,7 +32,7 @@ export class ProfilePage {
     private camera: Camera, private imagePicker: ImagePicker,
     public actionsheetCtrl: ActionSheetController, public platform: Platform,
     public events: Events,private _auth: AngularFireAuth,private apiBlockChain: ApiClientService,
-    private base64: Base64,public loadingCtrl: LoadingController) {
+    private base64: Base64,public loadingCtrl: LoadingController,public app: App) {
       this.showInformation=false;
       this.isRead=false;
   }
@@ -64,6 +64,15 @@ export class ProfilePage {
   changeInfo(){
     this.isRead=true;
   }
+
+  acceptInfo(){
+    this.isRead=false;
+  }
+
+  cancelInfo(){
+    this.isRead=false;
+  }
+
 
   openMenu() {
     let actionSheet = this.actionsheetCtrl.create({
@@ -137,7 +146,7 @@ export class ProfilePage {
   }
 
   goSetting(){
-    this.navCtrl.push(SettingPage);
+    this.app.getRootNav().push(SettingPage);
   }
 
   logout(){

@@ -1,11 +1,6 @@
-<ion-header>
-    <ion-toolbar>
-        <ion-title>Perfil</ion-title>
-    </ion-toolbar>
-</ion-header>
 <ion-content no-padding class="background">
-    <ion-grid padding-top class="gridPerfil" *ngIf="showInformation">
-        <ion-row justify-content-start>
+    <ion-grid no-padding class="gridPerfil" *ngIf="showInformation">
+        <ion-row justify-content-start class="rowFoto">
             <ion-col col-4 offset-4 align-self-center>
                 <div class="img" (click)="openMenu()">
                     <img *ngIf="image==='noImage'  || !image" class="imagen" src="assets/imgs/PersonPlaceholder.png">
@@ -14,58 +9,57 @@
                 <p class="text" (click)="openMenu()">Cambiar foto</p>
             </ion-col>
         </ion-row>
-    </ion-grid>
-    <ion-grid no-padding class="gridCectral" *ngIf="showInformation">
         <ion-row>
-            <ion-card>
-                <ion-card-header>
+            <ion-col col-12>
+                <ion-list>
+                    <ion-item-divider item-end>
+                        Datos personales
+                        <ion-icon *ngIf="!isRead" ios="ios-create-outline" md="md-create" item-end (click)="changeInfo()"></ion-icon>
+                        <ion-icon *ngIf="isRead" name="checkmark-circle" color="secondary" item-end class="checkMark" (click)="acceptInfo()" ></ion-icon>
+                        <ion-icon *ngIf="isRead" name="close-circle" color="danger" class="closeMark" item-end (click)="cancelInfo()" ></ion-icon>
+                    </ion-item-divider>
                     <ion-item>
-                        <p class="titlePersonal">Datos personales</p>
-                        <ion-icon ios="ios-create-outline" md="md-create" item-end (click)="changeInfo()"></ion-icon>
+                        <ion-icon ios="ios-person" md="md-person" color="perfilIcon" item-start></ion-icon>
+                        <ion-input type="text" [(ngModel)]="name" [readonly]="!isRead"></ion-input>
                     </ion-item>
-                </ion-card-header>
-                <ion-card-content>
-                    <ion-list>
-                        <ion-item>
-                            <ion-icon ios="ios-person" md="md-person" color="primary" item-start></ion-icon>
-                            <ion-input type="text" [(ngModel)]="name" [readonly]="!isRead"></ion-input>
-                        </ion-item>
 
-                        <ion-item>
-                            <ion-icon ios="ios-people" md="md-people" color="family" item-start></ion-icon>
-                            <ion-input type="text" [(ngModel)]="lastName" [readonly]="!isRead"></ion-input>
-                        </ion-item>
+                    <ion-item>
+                        <ion-icon ios="ios-people" md="md-people" color="perfilIcon" item-start></ion-icon>
+                        <ion-input type="text" [(ngModel)]="lastName" [readonly]="!isRead"></ion-input>
+                    </ion-item>
 
-                        <ion-item>
-                            <ion-icon ios="ios-mail" md="md-mail" color="warning" item-start></ion-icon>
-                            <ion-input type="email" [(ngModel)]="email" [readonly]="!isRead"></ion-input>
-                        </ion-item>
+                    <ion-item>
+                        <ion-icon ios="ios-mail" md="md-mail" color="perfilIcon" item-start></ion-icon>
+                        <ion-input type="email" [(ngModel)]="email" [readonly]="!isRead"></ion-input>
+                    </ion-item>
 
-                        <ion-item>
-                            <ion-icon ios="ios-call" md="md-call" color="secondary" item-start></ion-icon>
-                            <ion-input type="text" [(ngModel)]="phoneNumber" [readonly]="!isRead"></ion-input>
-                        </ion-item>
+                    <ion-item>
+                        <ion-icon ios="ios-call" md="md-call" color="perfilIcon" item-start></ion-icon>
+                        <ion-input type="text" [(ngModel)]="phoneNumber" [readonly]="!isRead"></ion-input>
+                    </ion-item>
 
-                        <ion-item>
-                            <ion-icon ios="ios-calendar" md="md-calendar" color="danger" item-start></ion-icon>
-                            <ion-input type="text" [(ngModel)]="date" [readonly]="!isRead"></ion-input>
-                        </ion-item>
+                    <ion-item>
+                        <ion-icon ios="ios-calendar" md="md-calendar" color="perfilIcon" item-start></ion-icon>
+                        <ion-input type="text" [(ngModel)]="date" [readonly]="!isRead"></ion-input>
+                    </ion-item>
 
-                        <ion-item>
-                            <ion-icon ios="ios-flag" md="md-flag"  color="flag" item-start></ion-icon>
-                            <ion-input type="text" [(ngModel)]="country" [readonly]="!isRead"></ion-input>
-                        </ion-item>
+                    <ion-item>
+                        <ion-icon ios="ios-flag" md="md-flag" color="perfilIcon" item-start></ion-icon>
+                        <ion-input type="text" [(ngModel)]="country" [readonly]="!isRead"></ion-input>
+                    </ion-item>
+                </ion-list>
 
-                    </ion-list>
-                </ion-card-content>
-            </ion-card>
-
-            <ion-card>
-                  <button ion-item (click)="goSetting()">
-                        <ion-icon ios="ios-cog" md="md-cog" item-start class="settingIcon"></ion-icon>
-                    Ajustes
-                  </button>
-              </ion-card>
+                <ion-list>
+                    <ion-item-divider item-end>
+                        Ajustes
+                    </ion-item-divider>
+                    <ion-item (click)="goSetting()">
+                        <ion-icon ios="ios-lock" md="md-lock" color="perfilIcon" item-start></ion-icon>
+                        <h2>Seguridad</h2>
+                        <ion-icon name="arrow-forward" class="arrowDetails" item-end></ion-icon>
+                    </ion-item>
+                </ion-list>
+            </ion-col>
         </ion-row>
         <ion-row>
             <ion-col col-4 offset-3 align-self-center>

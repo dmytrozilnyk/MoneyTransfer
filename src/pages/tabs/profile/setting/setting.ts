@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams} from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ViewController} from 'ionic-angular';
 
 /**
  * Generated class for the SettingPage page.
@@ -14,12 +14,13 @@ import { IonicPage, NavController, NavParams} from 'ionic-angular';
   templateUrl: 'setting.html',
 })
 export class SettingPage {
+  seguridad;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,public viewCtrl: ViewController) {
   }
 
   ionViewDidLoad() {
-
+    this.viewCtrl.setBackButtonText('Atras');
   }
 
   goBack(){

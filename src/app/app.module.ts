@@ -17,6 +17,7 @@ import { ProfilePage } from '../pages/tabs/profile/profile';
 import { TransferPage } from '../pages/tabs/transfer/transfer';
 import { ProfileFotoPage } from '../pages/register/profile-foto/profile-foto'
 import { SettingPage } from '../pages/tabs/profile/setting/setting';
+import { DetailsPage } from '../pages/tabs/home/details/details';
 
 import { AngularFireAuth } from 'angularfire2/auth';
 import { AngularFireModule } from 'angularfire2';
@@ -36,7 +37,7 @@ import { Base64 } from '@ionic-native/base64';
 @NgModule({
   declarations: [
     MyApp,
-    LoginPage,
+    /*LoginPage,
     TabsPage,
     RegisterPage,
     CreateAccountPage,
@@ -47,7 +48,8 @@ import { Base64 } from '@ionic-native/base64';
     ProfilePage,
     TransferPage,
     ProfileFotoPage,
-    SettingPage
+    SettingPage,
+    DetailsPage*/
   ],
   imports: [
     BrowserModule,
@@ -73,7 +75,8 @@ import { Base64 } from '@ionic-native/base64';
     ProfilePage,
     TransferPage,
     ProfileFotoPage,
-    SettingPage
+    SettingPage,
+    DetailsPage
   ],
   providers: [
     StatusBar,

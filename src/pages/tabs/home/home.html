@@ -1,8 +1,47 @@
-<ion-header>
-        <ion-toolbar>
-            <ion-title>Posición global</ion-title>
-        </ion-toolbar>
-</ion-header>
 <ion-content padding class="background">
-        
+    <ion-grid no-padding>
+        <ion-row padding-top class="header">
+            <ion-col align-self-center class="colText">
+                <h1 class="text">{{amount}} €</h1>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col col-6 style="padding:8px">
+                <button ion-button icon-left block>
+                    <ion-icon name="arrow-round-up" class="arrows"></ion-icon>
+                    <p class="text">Ingresar</p>
+                </button>
+            </ion-col>
+            <ion-col col-6 style="padding:8px">
+                <button ion-button icon-left block>
+                    <ion-icon name="arrow-round-down" class="arrows"></ion-icon>
+                    <p class="text">Retirar</p>
+                </button>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col col-12>
+                <ion-list>
+                    <ion-item-divider>
+                            Movimientos
+                    </ion-item-divider>
+                    <ion-scroll style="width:100%;height:100px" scrollY="true">
+                        <ion-item *ngFor="let arr of moves" (click)="goDetails()">
+                            <ion-avatar item-start>
+                                <ion-icon *ngIf="arr=='1'" name="cash" class="movimiento"></ion-icon>
+                                <ion-icon *ngIf="arr=='2'" name="card" class="movimiento"></ion-icon>
+                            </ion-avatar>
+                            <h2 *ngIf="arr=='1'">Recibido</h2>
+                            <h2 *ngIf="arr=='2'">Retirada</h2>
+                            <h3 *ngIf="arr=='1'" class="textAmountGreen">+ 20.5 €</h3>
+                            <h3 *ngIf="arr=='2'" class="textAmountRed">- 35.5 €</h3>
+                            <ion-avatar item-end >
+                                <ion-icon name="arrow-forward" class="arrowDetails"></ion-icon>
+                            </ion-avatar>
+                        </ion-item>
+                    </ion-scroll>
+                </ion-list>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
 </ion-content>
