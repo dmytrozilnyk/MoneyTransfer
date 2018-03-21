@@ -37,7 +37,7 @@ import { Base64 } from '@ionic-native/base64';
 @NgModule({
   declarations: [
     MyApp,
-    /*LoginPage,
+    LoginPage,
     TabsPage,
     RegisterPage,
     CreateAccountPage,
@@ -49,7 +49,7 @@ import { Base64 } from '@ionic-native/base64';
     TransferPage,
     ProfileFotoPage,
     SettingPage,
-    DetailsPage*/
+    DetailsPage
   ],
   imports: [
     BrowserModule,
