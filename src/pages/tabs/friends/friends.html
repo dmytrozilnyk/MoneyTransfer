@@ -1,8 +1,45 @@
 <ion-header>
-    <ion-toolbar>
-        <ion-title>Amigos</ion-title>
-    </ion-toolbar>
+    <ion-navbar>
+        <button ion-button icon-only menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title>
+            Amigos
+        </ion-title>
+        <ion-buttons end>
+            <button ion-button icon-only (click)="goFindFriends()">
+                <ion-icon name="person-add"></ion-icon>
+            </button>
+        </ion-buttons>
+    </ion-navbar>
 </ion-header>
-<ion-content padding class="background">
 
+<ion-content padding class="background">
+    <ion-list>
+        <ion-item-divider>
+            Peticiones de amistad
+        </ion-item-divider>
+        <ion-item-sliding *ngFor="let user of requests">
+            <ion-item>
+                <h4>{{user.displayName}}</h4>
+            </ion-item>
+            <ion-item-options>
+                <button ion-button color="secondary" (click)="accept(user)">
+                    <ion-icon name="checkmark"></ion-icon>
+                    Añadir
+                </button>
+                <button ion-button color="danger" (click)="ignore(user)">
+                    <ion-icon name="trash"></ion-icon>
+                    Ignorar
+                </button>
+            </ion-item-options>
+        </ion-item-sliding>
+        <h6 *ngIf="!requestList">No tiene peticiones de amistad</h6>
+        <ion-item-divider>
+            Amigos
+        </ion-item-divider>
+        <ion-item *ngFor="let user of friends" (click)="friendChat(user)">
+            <h3>{{user.displayName}}</h3>
+        </ion-item>
+    </ion-list>
 </ion-content>

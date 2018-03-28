@@ -12,12 +12,14 @@ import { CreateAccountPage } from '../pages/register/create-account/create-accou
 import { SetpasswordPage } from '../pages/setpassword/setpassword';
 import { CardPage } from '../pages/tabs/card/card';
 import { FriendsPage } from '../pages/tabs/friends/friends';
+import { FindFriendsPage } from '../pages/tabs/friends/find-friends/find-friends';
 import { HomePage } from '../pages/tabs/home/home';
 import { ProfilePage } from '../pages/tabs/profile/profile';
 import { TransferPage } from '../pages/tabs/transfer/transfer';
 import { ProfileFotoPage } from '../pages/register/profile-foto/profile-foto'
 import { SettingPage } from '../pages/tabs/profile/setting/setting';
 import { DetailsPage } from '../pages/tabs/home/details/details';
+import { ChatPage } from './../pages/tabs/friends/chat/chat';
 
 import { AngularFireAuth } from 'angularfire2/auth';
 import { AngularFireModule } from 'angularfire2';
@@ -33,23 +35,29 @@ import { Camera } from '@ionic-native/camera';
 import { ImagePicker } from '@ionic-native/image-picker';
 import { Base64 } from '@ionic-native/base64';
 
+import { RequestsProvider } from '../providers/requests/requests';
+import { UserProvider } from '../providers/user/user';
+import { ChatProvider } from '../providers/chat/chat';
+
 
 @NgModule({
   declarations: [
     MyApp,
-    /*LoginPage,
+    LoginPage,
     TabsPage,
     RegisterPage,
     CreateAccountPage,
     SetpasswordPage,
     CardPage,
     FriendsPage,
+    FindFriendsPage,
+    ChatPage,
     HomePage,
     ProfilePage,
     TransferPage,
     ProfileFotoPage,
     SettingPage,
-    DetailsPage*/
+    DetailsPage
   ],
   imports: [
     BrowserModule,
@@ -71,6 +79,8 @@ import { Base64 } from '@ionic-native/base64';
     SetpasswordPage,
     CardPage,
     FriendsPage,
+    FindFriendsPage,
+    ChatPage,
     HomePage,
     ProfilePage,
     TransferPage,
@@ -87,7 +97,10 @@ import { Base64 } from '@ionic-native/base64';
     FingerprintAIO,
     Camera,
     ImagePicker,
-    Base64 
+    Base64,
+    RequestsProvider,
+    UserProvider,
+    ChatProvider 
   ]
 })
 export class AppModule {}

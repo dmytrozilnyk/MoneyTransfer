@@ -52,6 +52,8 @@ export class LoginPage {
             console.log(<any>error);
             this.showToast(error.body);
             this.loading.dismiss();
+            let err = "El usuario no existe";
+            this.showToast(err);
             this.email = this.password = "";
           }
         )
