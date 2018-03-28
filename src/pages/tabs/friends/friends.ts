@@ -41,6 +41,7 @@ export class FriendsPage {
 
   ionViewDidLeave() {
     this.events.unsubscribe('gotRequests');
+    this.events.unsubscribe('friends');
   }
 
   goFindFriends() {
