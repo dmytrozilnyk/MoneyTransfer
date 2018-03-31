@@ -1,9 +1,9 @@
 page-setting {
     .toolbar-background {
-        background-color: rgb(42, 236, 193) !important;
+        background-color: rgb(34,56,73) !important;
     }
-    .toolbar-title-ios {
-        color:rgb(34,56,73)
+    .toolbar-title {
+        color:rgb(42, 236, 193);
     }
   
     .titlePersonal{
@@ -59,7 +59,7 @@ page-setting {
     .iconArrow {
         display: inline-block;
         font-size: 3.2em;
-        color: rgb(34,56,73);
+        color: rgb(42, 236, 193) !important;
         padding-left: 5%;
     }
 }

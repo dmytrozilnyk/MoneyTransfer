@@ -8,38 +8,42 @@
         </ion-title>
         <ion-buttons end>
             <button ion-button icon-only (click)="goFindFriends()">
-                <ion-icon name="person-add"></ion-icon>
+                <ion-icon color="titleColor" name="person-add"></ion-icon>
             </button>
         </ion-buttons>
     </ion-navbar>
 </ion-header>
 
-<ion-content padding class="background">
-    <ion-list>
+<ion-content class="background">
+    <ion-searchbar (input)="searchUser($event)" placeholder="Buscar"></ion-searchbar>
+    <ion-list >
         <ion-item-divider>
             Peticiones de amistad
         </ion-item-divider>
+        <h3 class="noRequest" *ngIf="!request">No tienes peticiones de amistad</h3>
         <ion-item-sliding *ngFor="let user of requests">
             <ion-item>
                 <h4>{{user.displayName}}</h4>
+                <ion-icon  name="checkmark-circle" color="secondary" item-end class="checkMark" (click)="accept(user)" ></ion-icon>
+                <ion-icon  name="close-circle" color="danger" class="closeMark" item-end (click)="ignore(user)" ></ion-icon>
             </ion-item>
-            <ion-item-options>
-                <button ion-button color="secondary" (click)="accept(user)">
-                    <ion-icon name="checkmark"></ion-icon>
-                    Añadir
-                </button>
-                <button ion-button color="danger" (click)="ignore(user)">
-                    <ion-icon name="trash"></ion-icon>
-                    Ignorar
-                </button>
-            </ion-item-options>
         </ion-item-sliding>
-        <h6 *ngIf="!requestList">No tiene peticiones de amistad</h6>
         <ion-item-divider>
-            Amigos
+            Lista de amigos
         </ion-item-divider>
-        <ion-item *ngFor="let user of friends" (click)="friendChat(user)">
-            <h3>{{user.displayName}}</h3>
+        <ion-item *ngFor="let user of filteredUsers;let i = index">
+                <ion-avatar item-start>
+                        <img *ngIf="i===0" src="assets/imgs/perro.png">
+                        <img *ngIf="i===1" src="assets/imgs/lobo.png">
+                        <img *ngIf="i===2" src="assets/imgs/leon.png">
+                        <img *ngIf="i===3" src="assets/imgs/sapo.png">
+                        <img *ngIf="i===4" src="assets/imgs/panda.png">
+                        <img *ngIf="i===5" src="assets/imgs/mono.png">
+                        <img *ngIf="i===6" src="assets/imgs/conejo.png">
+                    </ion-avatar>
+            <button ion-item (click)="friendChat(user)">
+                    <h3>{{user.displayName}}</h3>
+            </button>
         </ion-item>
     </ion-list>
 </ion-content>

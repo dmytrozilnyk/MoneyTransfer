@@ -1,8 +1,7 @@
 <ion-header>
-    <ion-navbar>
-        <ion-title>
-            Buscar Amigos
-        </ion-title>
+    <ion-navbar hideBackButton="true">
+        <ion-icon class="iconArrow" md="md-arrow-back" ios="ios-arrow-round-back" (click)="goBack()" item-start></ion-icon>
+        <ion-title>Buscar amigos</ion-title>
     </ion-navbar>
 </ion-header>
 <ion-content padding>
@@ -10,32 +9,34 @@
         <ion-row no-padding>
             <ion-col col-12 no-padding>
                 <ion-searchbar (input)="searchUser($event)" placeholder="Buscar"></ion-searchbar>
-                <ion-scroll style="width:100%;height:33em" scrollY="true">
+                <ion-scroll style="width:100%;height:32em" scrollY="true">
                     <ion-list>
-                        <ion-item-sliding *ngFor="let user of filteredUsers">
-                            <ion-item>
-                                <h2>{{user.displayName}}</h2>
-                            </ion-item>
-                            <ion-item-options side="left">
-                                <button ion-button color="secondary" (click)="sendRequest(user)">
-                                    <ion-icon name="person-add"></ion-icon>
-                                    Añadir
-                                </button>
-                            </ion-item-options>
-                        </ion-item-sliding>
+                        <ion-item *ngFor="let user of filteredUsers;let i = index">
+                            <ion-avatar item-start>
+                                <img *ngIf="i===0" src="assets/imgs/perro.png">
+                                <img *ngIf="i===1" src="assets/imgs/lobo.png">
+                                <img *ngIf="i===2" src="assets/imgs/leon.png">
+                                <img *ngIf="i===3" src="assets/imgs/sapo.png">
+                                <img *ngIf="i===4" src="assets/imgs/panda.png">
+                                <img *ngIf="i===5" src="assets/imgs/mono.png">
+                                <img *ngIf="i===6" src="assets/imgs/conejo.png">
+                            </ion-avatar>
+                            <ion-icon ios="ios-add-circle-outline" md="md-add-circle" item-end color="primary" (click)="sendRequest(user)"></ion-icon>
+                            <h2>{{user.displayName}}</h2>
+                        </ion-item>
                     </ion-list>
                 </ion-scroll>
             </ion-col>
         </ion-row>
         <ion-row>
             <ion-col col-6 style="padding:8px">
-                <button ion-button icon-left block>
+                <button ion-button icon-left block class="buttonDown">
                     <ion-icon name="qr-scanner"></ion-icon>
                     <p class="text">Escanear QR</p>
                 </button>
             </ion-col>
             <ion-col col-6 style="padding:8px">
-                <button ion-button icon-left block>
+                <button ion-button icon-left block class="buttonDown">
                     <ion-icon name="barcode" class="arrows"></ion-icon>
                     <p class="text">Ver mi QR</p>
                 </button>

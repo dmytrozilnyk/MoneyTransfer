@@ -12,7 +12,8 @@ import { ChatProvider } from './../../../providers/chat/chat';
 })
 export class FriendsPage {
 
-  requestList: boolean;
+  filteredUsers: any;
+  request:boolean;
   requests: any[];
   friends: any[];
   
@@ -23,19 +24,24 @@ export class FriendsPage {
   }
 
   ionViewWillEnter() {
+    this.request = false;
     this.requestService.getRequests();
     this.requestService.getFriends();
     this.friends = [];
+    this.requests = [];
     this.events.subscribe('gotRequests', () => {
       this.requests = [];
       this.requests = this.requestService.userDetails;
-      if(this.requests === []){
-        this.requestList = false;
+      if(this.requests.length == 0){
+        this.request = false;
+      }else{
+        this.request = true;
       }
     });
     this.events.subscribe('friends', () => {
       this.friends = [];
       this.friends = this.requestService.myfriends;
+      this.filteredUsers = this.friends;
     });
   }
 
@@ -54,6 +60,7 @@ export class FriendsPage {
   }
 
   accept(user) {
+    this.request = false;
     this.requestService.acceptRequest(user).then(() => {
       let newalert = this.alertCtrl.create({
         title: 'Amigo añadido',
@@ -61,14 +68,35 @@ export class FriendsPage {
         buttons: ['Okay']
       });
       newalert.present();
+    }).catch((err) => {
+      alert(err);
     })
   }
 
   ignore(user) {
+    this.request = false;
     this.requestService.deleteRequest(user).then(() => {
-      alert('Request ignored');
+      let newalert = this.alertCtrl.create({
+        title: 'Petición rechazada',
+        buttons: ['Okay']
+      });
+      newalert.present();
     }).catch((err) => {
       alert(err);
+    })
+  }
+
+  searchUser(searchBar) {
+    this.filteredUsers = this.friends;
+    var q = searchBar.target.value;
+    if (q.trim() == '') {
+      return;
+    }
+    this.filteredUsers = this.filteredUsers.filter((v) => {
+      if (v.displayName.toLowerCase().indexOf(q.toLowerCase()) > -1) {
+        return true;
+      }
+      return false;
     })
   }
 }

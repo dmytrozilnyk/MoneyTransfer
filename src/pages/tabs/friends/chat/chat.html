@@ -1,23 +1,24 @@
 <ion-header>
-  <ion-navbar  end color="hcolor">
+  <ion-navbar  end color="hcolor" hideBackButton="true">
+    <ion-icon class="iconArrow" md="md-arrow-back" ios="ios-arrow-round-back" (click)="goBack()" item-start></ion-icon>
     <ion-title>{{friend.displayName}}</ion-title>
     <ion-buttons end>
         <button ion-button icon-only (click)="acctions()">
-            <ion-icon name="swap"></ion-icon>
+            <ion-icon color="titleColor" name="swap"></ion-icon>
         </button>
       </ion-buttons>
   </ion-navbar>
 </ion-header>
 
-<ion-content #content>
+<ion-content #content class="background">
   <div class="chatwindow">
     <ion-list no-lines>
       <ion-item *ngFor="let item of allMessages; let i = index" text-wrap>
         <div class="bubble me" *ngIf="item.sentby === friend.uid">
-          <h3>{{item.message}}</h3>
+          <h3 class="text">{{item.message}}</h3>
         </div>
         <div class="bubble you" *ngIf="item.sentby != friend.uid">
-          <h3>{{item.message}}</h3>
+          <h3 class="text">{{item.message}}</h3>
         </div>
       </ion-item>
     </ion-list>
@@ -28,7 +29,7 @@
     <ion-input [(ngModel)]="newMessage" placeholder="Write your message ..."></ion-input>
     <ion-buttons end>
       <button ion-button (click)="addMessage()">
-        <ion-icon name="send" color="primary"></ion-icon>
+        <ion-icon name="send" color="whiteT"></ion-icon>
       </button>
     </ion-buttons>
   </ion-toolbar>

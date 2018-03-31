@@ -49,5 +49,4 @@ getallusers() {
     })
     return promise;
   }
-
 }

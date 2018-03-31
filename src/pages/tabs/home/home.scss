@@ -14,7 +14,7 @@ page-home {
         .header{
             background: linear-gradient(to top,  rgb(34,56,73) 25%, rgb(121, 163, 194) 100%);
             height:24% !important;
-            padding-top: 20px;
+            padding-top: 0px;
     
             .colText{
                 text-align: center;
@@ -27,6 +27,12 @@ page-home {
                     text-shadow: black 0.1em 0.1em 0.2em;
                 }
             }
+        }
+        .segmentButton{
+            padding-left: 10px;
+            padding-right: 6px;
+            padding-top: 5px;
+            padding-bottom: 10px;
         }
         
     }
@@ -70,5 +76,22 @@ page-home {
     .textAmountRed{
         color: #f44336;
         font-weight: bold;
+    }
+    .segment .segment-button.segment-activated {
+        color: #fff !important;
+        background-color: rgb(34,56,73) !important;
+        opacity: 1;
+        -webkit-transition: 100ms all linear;
+        transition: 100ms all linear;
+    }
+    .segment .segment-button {
+        border-color: rgb(34,56,73);
+        color: #488aff;
+        background: rgb(42, 236, 193) !important;
+    }
+
+    .segment .segment-button {
+        color: rgb(34,56,73) !important;
+        background: #2aecc1 !important;
     }
 }

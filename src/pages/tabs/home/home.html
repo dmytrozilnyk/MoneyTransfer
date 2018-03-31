@@ -19,13 +19,26 @@
                 </button>
             </ion-col>
         </ion-row>
+        <ion-row class="segmentButton">
+            <ion-segment [(ngModel)]="filter" color="textColor">
+                <ion-segment-button value="all">
+                    Todos
+                </ion-segment-button>
+                <ion-segment-button value="positive">
+                    Positivos
+                </ion-segment-button>
+                <ion-segment-button value="negative">
+                    Negativos
+                </ion-segment-button>
+            </ion-segment>
+        </ion-row>
         <ion-row>
             <ion-col col-12>
-                <ion-list>
+                <ion-list *ngIf="filter==='all'">
                     <ion-item-divider>
-                            Movimientos
+                        Movimientos
                     </ion-item-divider>
-                    <ion-scroll style="width:100%;height:90px" scrollY="true">
+                    <ion-scroll style="width:100%;height:78.5px" scrollY="true">
                         <ion-item *ngFor="let arr of moves" (click)="goDetails()">
                             <ion-avatar item-start>
                                 <ion-icon *ngIf="arr=='1'" name="cash" class="movimiento"></ion-icon>
@@ -35,7 +48,49 @@
                             <h2 *ngIf="arr=='2'">Retirada</h2>
                             <h3 *ngIf="arr=='1'" class="textAmountGreen">+ 20.5 €</h3>
                             <h3 *ngIf="arr=='2'" class="textAmountRed">- 35.5 €</h3>
-                            <ion-avatar item-end >
+                            <ion-avatar item-end>
+                                <ion-icon name="arrow-forward" class="arrowDetails"></ion-icon>
+                            </ion-avatar>
+                        </ion-item>
+                    </ion-scroll>
+                </ion-list>
+
+                <ion-list *ngIf="filter==='positive'">
+                    <ion-item-divider>
+                        Movimientos
+                    </ion-item-divider>
+                    <ion-scroll style="width:100%;height:78.5px" scrollY="true">
+                        <ion-item *ngFor="let arr of arrayPositive" (click)="goDetails()">
+                            <ion-avatar item-start>
+                                <ion-icon *ngIf="arr=='1'" name="cash" class="movimiento"></ion-icon>
+                                <ion-icon *ngIf="arr=='2'" name="card" class="movimiento"></ion-icon>
+                            </ion-avatar>
+                            <h2 *ngIf="arr=='1'">Recibido</h2>
+                            <h2 *ngIf="arr=='2'">Retirada</h2>
+                            <h3 *ngIf="arr=='1'" class="textAmountGreen">+ 20.5 €</h3>
+                            <h3 *ngIf="arr=='2'" class="textAmountRed">- 35.5 €</h3>
+                            <ion-avatar item-end>
+                                <ion-icon name="arrow-forward" class="arrowDetails"></ion-icon>
+                            </ion-avatar>
+                        </ion-item>
+                    </ion-scroll>
+                </ion-list>
+
+                <ion-list *ngIf="filter==='negative'">
+                    <ion-item-divider>
+                        Movimientos
+                    </ion-item-divider>
+                    <ion-scroll style="width:100%;height:78.5px" scrollY="true">
+                        <ion-item *ngFor="let arr of arrayNegative" (click)="goDetails()">
+                            <ion-avatar item-start>
+                                <ion-icon *ngIf="arr=='1'" name="cash" class="movimiento"></ion-icon>
+                                <ion-icon *ngIf="arr=='2'" name="card" class="movimiento"></ion-icon>
+                            </ion-avatar>
+                            <h2 *ngIf="arr=='1'">Recibido</h2>
+                            <h2 *ngIf="arr=='2'">Retirada</h2>
+                            <h3 *ngIf="arr=='1'" class="textAmountGreen">+ 20.5 €</h3>
+                            <h3 *ngIf="arr=='2'" class="textAmountRed">- 35.5 €</h3>
+                            <ion-avatar item-end>
                                 <ion-icon name="arrow-forward" class="arrowDetails"></ion-icon>
                             </ion-avatar>
                         </ion-item>

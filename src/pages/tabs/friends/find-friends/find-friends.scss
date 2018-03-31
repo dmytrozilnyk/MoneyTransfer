@@ -2,4 +2,26 @@ page-find-friends {
     .scroll-content {
         padding: 0px !important;
     }
+    .toolbar-background {
+        background-color: rgb(34,56,73) !important;
+    }
+    .toolbar-title {
+        color:rgb(42, 236, 193)
+    }
+    .iconArrow {
+        display: inline-block;
+        font-size: 3.2em;
+        color: rgb(42, 236, 193) !important;
+        padding-left: 5%;
+    }
+
+    .buttonDown {
+        border-radius: 4px;
+        height: 2.8em;
+        font-size: 1.6rem;
+        color: #fff;
+        background-color: #233849;
+        margin: 0.4rem 0.2rem;
+        padding: 0 1em;
+    }
 }

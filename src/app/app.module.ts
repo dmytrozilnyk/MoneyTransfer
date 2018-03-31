@@ -20,6 +20,7 @@ import { ProfileFotoPage } from '../pages/register/profile-foto/profile-foto'
 import { SettingPage } from '../pages/tabs/profile/setting/setting';
 import { DetailsPage } from '../pages/tabs/home/details/details';
 import { ChatPage } from './../pages/tabs/friends/chat/chat';
+import { QrPage } from '../pages/tabs/friends/find-friends/qr/qr';
 
 import { AngularFireAuth } from 'angularfire2/auth';
 import { AngularFireModule } from 'angularfire2';
@@ -57,7 +58,8 @@ import { ChatProvider } from '../providers/chat/chat';
     TransferPage,
     ProfileFotoPage,
     SettingPage,
-    DetailsPage
+    DetailsPage,
+    QrPage
   ],
   imports: [
     BrowserModule,
@@ -86,7 +88,8 @@ import { ChatProvider } from '../providers/chat/chat';
     TransferPage,
     ProfileFotoPage,
     SettingPage,
-    DetailsPage
+    DetailsPage,
+    QrPage
   ],
   providers: [
     StatusBar,

@@ -5,4 +5,27 @@ page-friends {
         background-attachment: fixed;
         background-position: center; 
     }
+    .toolbar-background {
+        background-color: rgb(34,56,73) !important;
+    }
+    .toolbar-title {
+        color:rgb(42, 236, 193);
+    }
+    .checkMark{
+        padding-right: 5%
+    }
+    .closeMark{
+        padding-right: 3%
+    }
+    .list .item-block .item-inner {
+        border-bottom: 0px solid #c8c7cc;
+    }
+    .list .item-block:last-child {
+        border-bottom: 0px solid #c8c7cc;
+    }
+    .noRequest{
+        color: #c5c3c3;
+        font-size: 1em;
+        text-align: center;
+    }
 }

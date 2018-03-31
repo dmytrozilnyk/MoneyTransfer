@@ -51,4 +51,8 @@ export class ChatPage {
     console.log();
   }
 
+  goBack(){
+    this.navCtrl.pop();
+  }
+
 }

@@ -12,27 +12,27 @@ import { DetailsPage } from './details/details';
 })
 export class HomePage {
 
-  amount = 0;
-  cantidad = 152;
+  amount:number;
   setInterval;
   moves;
+  filter = "all";
+  arrayPositive = [];
+  arrayNegative = [];
   constructor(public navCtrl: NavController, public navParams: NavParams,public events: Events,
               private _auth: AngularFireAuth,public app: App) {
-          this.moves = ['1','1','2','1','1','2','1','1','2','1'];
+          this.moves = ['1','2','2','1','1','2','1','1','2','1'];
   }
 
   ionViewDidLoad() {
-     this.setInterval =  setInterval(() =>{this.setAmount()}, 0);
-  }
-
-  setAmount(){
-    if(this.amount>=this.cantidad){
-      this.amount = this.amount - 1;
-      clearInterval(this.setInterval);
+     this.amount = 259.5
+    for (let i = 0; i < this.moves.length; i++) {
+      if(this.moves[i] === '1'){
+        this.arrayPositive.push(this.moves[i]);
+      }else{
+        this.arrayNegative.push(this.moves[i]);
+      }
     }
-    this.amount = this.amount + 1
   }
-
   goDetails(){
     this.app.getRootNav().push(DetailsPage);
   }
