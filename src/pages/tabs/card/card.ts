@@ -1,12 +1,7 @@
+import { AddCardPage } from './add-card/add-card';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
-/**
- * Generated class for the CardPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { NativePageTransitions, NativeTransitionOptions } from '@ionic-native/native-page-transitions';
 
 @IonicPage()
 @Component({
@@ -15,11 +10,20 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class CardPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,private nativePageTransitions: NativePageTransitions) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad CardPage');
+  }
+
+  addCard(){
+    let options: NativeTransitionOptions = {
+      direction: 'up',
+      duration: 500,
+     };
+    this.nativePageTransitions.slide(options)
+    this.navCtrl.push(AddCardPage);
   }
 
 }

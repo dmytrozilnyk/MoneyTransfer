@@ -1,14 +1,47 @@
 page-transfer {
     .toolbar-background {
-        background-color: rgb(42, 236, 193) !important;
+        background-color: rgb(34,56,73) !important;
     }
-    .toolbar-title-ios {
-        color:rgb(34,56,73)
+    .toolbar-title {
+        color:rgb(42, 236, 193)
     }
-    .background{
+    .background {
         background-color: white;
         background-repeat: no-repeat;
         background-attachment: fixed;
-        background-position: center; 
+        background-position: left; 
+    }
+    .textTitle {
+        font-size: 1.1em;
+        padding-bottom: 10px;
+        padding-top: 10px;
+        font-weight: bold;
+        color: #353535;
+    }
+    .movimiento {
+        font-size: 1.8em;
+        color:#ca2e64;
+    }
+    .buttonOperation {
+        .text {
+            font-size: 0.7em;
+            padding: 0px;
+            margin: 0px;
+            text-align: left;
+        }
+    }
+    .button-inner {
+        justify-content: left;
+    }
+
+    .button {
+        background-color: #2c4b65;
+        margin: 1rem 0.2rem;
+        border-radius: 5px !important;
+        box-shadow: 2px 2px 2px #9E9E9E;
+    }
+    .button.activated {
+        background-color: #2c4b65;
+        opacity: 1;
     }
 }

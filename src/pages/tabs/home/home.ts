@@ -3,6 +3,9 @@ import { IonicPage, NavController, NavParams, App } from 'ionic-angular';
 import { Events } from 'ionic-angular';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { DetailsPage } from './details/details';
+import { NativePageTransitions, NativeTransitionOptions } from '@ionic-native/native-page-transitions';
+import { WithdrawPage } from '../transfer/withdraw/withdraw';
+import { DepositPage } from '../transfer/deposit/deposit';
 
 
 @IonicPage()
@@ -19,7 +22,7 @@ export class HomePage {
   arrayPositive = [];
   arrayNegative = [];
   constructor(public navCtrl: NavController, public navParams: NavParams,public events: Events,
-              private _auth: AngularFireAuth,public app: App) {
+              private _auth: AngularFireAuth,public app: App, private nativePageTransitions: NativePageTransitions) {
           this.moves = ['1','2','2','1','1','2','1','1','2','1'];
   }
 
@@ -35,5 +38,23 @@ export class HomePage {
   }
   goDetails(){
     this.app.getRootNav().push(DetailsPage);
+  }
+
+  openWithdraw(){
+    let options: NativeTransitionOptions = {
+      direction: 'up',
+      duration: 500,
+     };
+    this.nativePageTransitions.slide(options)
+    this.navCtrl.push(WithdrawPage);
+  }
+
+  openDeposit(){
+    let options: NativeTransitionOptions = {
+      direction: 'up',
+      duration: 500,
+     };
+    this.nativePageTransitions.slide(options)
+    this.navCtrl.push(DepositPage);
   }
 }

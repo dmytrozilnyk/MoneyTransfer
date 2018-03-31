@@ -5,16 +5,16 @@ import { NativePageTransitions, NativeTransitionOptions } from '@ionic-native/na
 
 @IonicPage()
 @Component({
-  selector: 'page-qr',
-  templateUrl: 'qr.html',
+  selector: 'page-add-card',
+  templateUrl: 'add-card.html',
 })
-export class QrPage {
+export class AddCardPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams,private nativePageTransitions: NativePageTransitions) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad QrPage');
+    console.log('ionViewDidLoad AddCardPage');
   }
 
   goBack(){
@@ -26,5 +26,4 @@ export class QrPage {
     this.nativePageTransitions.slide(options);
     this.navCtrl.pop();
   }
-
 }

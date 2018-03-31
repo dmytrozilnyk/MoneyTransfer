@@ -85,5 +85,6 @@
     </plugin>
     <plugin name="cordova-plugin-fingerprint-aio" spec="^1.3.4" />
     <plugin name="cordova-plugin-camera" spec="^4.0.2" />
+    <plugin name="com.telerik.plugins.nativepagetransitions" spec="^0.6.5" />
     <engine name="ios" spec="4.5.4" />
 </widget>

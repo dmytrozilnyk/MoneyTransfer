@@ -4,8 +4,19 @@
     </ion-toolbar>
 </ion-header>
 <ion-content padding class="background">
+    <ion-grid no-padding>
+        <ion-row no-padding>
+            <ion-col no-padding col-12>
+                <button ion-button full (click)="addCard()">
+                    <ion-icon ios="ios-add-circle-outline" md="md-add-circle" class="movimiento"></ion-icon>
+                    <h3 class="text">Añadir tarjeta </h3>
+                </button>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+</ion-content>
 
-    <ion-card>
+<!--<ion-card>
         <img src="assets/imgs/master_card.png" />
         <div class="card-number">XXXX XXXX XXXX 9837</div>
         <div class="card-date">11/19</div>
@@ -16,6 +27,4 @@
         <div class="card-number">XXXX XXXX XXXX 9837</div>
         <div class="card-date">11/19</div>
         <div class="card-name">Dmytro Zilnyk</div>
-    </ion-card>
-
-</ion-content>
+    </ion-card> -->

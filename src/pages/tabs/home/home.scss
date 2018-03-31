@@ -36,18 +36,18 @@ page-home {
         }
         
     }
-    
     .scroll-content {
         padding: 0px !important;
         height: 390%;
     }
-
     .arrows{
         font-size: 2.4em;
         line-height: .67;
         pointer-events: none;
         padding-right: 0.3em;
         margin-right: 6%;
+        color: #ca2e64;
+        font-weight: bold;
     }
     .text{
         margin: 0%;
@@ -58,7 +58,7 @@ page-home {
         height: 2.8em;
         font-size: 1.6rem;
         color: #fff;
-        background-color: #7a7d82;
+        background-color: #2c4b65;
         margin: 0.4rem 0.2rem;
         padding: 0 1em;
     }
@@ -94,4 +94,8 @@ page-home {
         color: rgb(34,56,73) !important;
         background: #2aecc1 !important;
     }
+}
+.item ion-avatar[item-end], .item ion-thumbnail[item-end] {
+    margin: 8px;
+    text-align: right !important;
 }

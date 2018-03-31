@@ -2,8 +2,10 @@ import { UserProvider } from './../../../../providers/user/user';
 import { RequestsProvider } from './../../../../providers/requests/requests';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, LoadingController, Loading, AlertController, Events } from 'ionic-angular';
+import { NativePageTransitions, NativeTransitionOptions } from '@ionic-native/native-page-transitions';
 import firebase from 'firebase';
 import { ConnRequest } from '../../../../models/interface/request';
+import { QrPage } from './qr/qr';
 
 @IonicPage()
 @Component({
@@ -23,7 +25,7 @@ export class FindFriendsPage {
   constructor(public navCtrl: NavController, public navParams: NavParams,
     public loadingCtrl: LoadingController, public alertCtrl: AlertController,
     public requestService: RequestsProvider, public userService: UserProvider,
-    public events: Events) {
+    public events: Events,private nativePageTransitions: NativePageTransitions) {
   }
 
   ionViewDidLoad() {
@@ -89,5 +91,18 @@ export class FindFriendsPage {
 
   goBack() {
     this.navCtrl.pop();
+  }
+
+  openQR(){
+    let options: NativeTransitionOptions = {
+      direction: 'up',
+      duration: 500,
+     };
+    this.nativePageTransitions.slide(options)
+    this.navCtrl.push(QrPage);
+  }
+
+  openScanner(){
+
   }
 }

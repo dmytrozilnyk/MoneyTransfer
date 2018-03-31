@@ -1,8 +1,24 @@
 <ion-header>
     <ion-toolbar>
-        <ion-title>Movimientos</ion-title>
+        <ion-title>Operaciones</ion-title>
     </ion-toolbar>
 </ion-header>
 <ion-content padding class="background">
-
+    <h3 class="textTitle">Selecciona la operacion que desea realizar</h3>
+    <button ion-button full (click)="openSent()" class="buttonOperation" icon-start large>
+        <ion-icon name="cash" class="movimiento"></ion-icon>
+        <h3 class="text">Enviar dinero a un amigo</h3>
+    </button>
+    <button ion-button full (click)="openRequest()" class="buttonOperation" icon-start large>
+        <ion-icon name="cash" class="movimiento"></ion-icon>
+        <h3 class="text">Solicitar dinero de un amigo</h3>
+    </button>
+    <button ion-button full (click)="openDeposit()" class="buttonOperation" icon-start large>
+        <ion-icon name="card" class="movimiento"></ion-icon>
+        <h3 class="text">Ingresar dinero de la tarjeta bancaria</h3>
+    </button>
+    <button ion-button full (click)="openWithdraw()" class="buttonOperation" icon-start large>
+        <ion-icon name="card" class="movimiento"></ion-icon>
+        <h3 class="text">Retirar dinero a la tarjeta bancaria</h3>
+    </button>
 </ion-content>

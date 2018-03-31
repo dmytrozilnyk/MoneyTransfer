@@ -30,13 +30,13 @@
         </ion-row>
         <ion-row>
             <ion-col col-6 style="padding:8px">
-                <button ion-button icon-left block class="buttonDown">
+                <button ion-button icon-left block class="buttonDown" (click)="openScanner()">
                     <ion-icon name="qr-scanner"></ion-icon>
                     <p class="text">Escanear QR</p>
                 </button>
             </ion-col>
             <ion-col col-6 style="padding:8px">
-                <button ion-button icon-left block class="buttonDown">
+                <button ion-button icon-left block class="buttonDown" (click)="openQR()">
                     <ion-icon name="barcode" class="arrows"></ion-icon>
                     <p class="text">Ver mi QR</p>
                 </button>

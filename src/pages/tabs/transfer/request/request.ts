@@ -2,19 +2,18 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { NativePageTransitions, NativeTransitionOptions } from '@ionic-native/native-page-transitions';
 
-
 @IonicPage()
 @Component({
-  selector: 'page-qr',
-  templateUrl: 'qr.html',
+  selector: 'page-request',
+  templateUrl: 'request.html',
 })
-export class QrPage {
+export class RequestPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams,private nativePageTransitions: NativePageTransitions) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad QrPage');
+    console.log('ionViewDidLoad RequestPage');
   }
 
   goBack(){

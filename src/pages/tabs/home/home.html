@@ -7,13 +7,13 @@
         </ion-row>
         <ion-row>
             <ion-col col-6 style="padding:8px">
-                <button ion-button icon-left block>
+                <button ion-button icon-left block (click)="openDeposit()">
                     <ion-icon name="arrow-round-up" class="arrows"></ion-icon>
                     <p class="text">Ingresar</p>
                 </button>
             </ion-col>
             <ion-col col-6 style="padding:8px">
-                <button ion-button icon-left block>
+                <button ion-button icon-left block (click)="openWithdraw()">
                     <ion-icon name="arrow-round-down" class="arrows"></ion-icon>
                     <p class="text">Retirar</p>
                 </button>
@@ -40,7 +40,7 @@
                     </ion-item-divider>
                     <ion-scroll style="width:100%;height:78.5px" scrollY="true">
                         <ion-item *ngFor="let arr of moves" (click)="goDetails()">
-                            <ion-avatar item-start>
+                            <ion-avatar item-start style="text-align:center">
                                 <ion-icon *ngIf="arr=='1'" name="cash" class="movimiento"></ion-icon>
                                 <ion-icon *ngIf="arr=='2'" name="card" class="movimiento"></ion-icon>
                             </ion-avatar>
