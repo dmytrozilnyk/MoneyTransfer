@@ -27,7 +27,7 @@ export class FindFriendsPage {
   constructor(public navCtrl: NavController, public navParams: NavParams,
     public loadingCtrl: LoadingController, public alertCtrl: AlertController,
     public requestService: RequestsProvider, public userService: UserProvider,
-    public events: Events,private nativePageTransitions: NativePageTransitions,
+    public events: Events, private nativePageTransitions: NativePageTransitions,
     private barcodeScanner: BarcodeScanner) {
   }
 
@@ -96,27 +96,39 @@ export class FindFriendsPage {
     this.navCtrl.pop();
   }
 
-  openQR(){
+  openQR() {
     let options: NativeTransitionOptions = {
       direction: 'up',
       duration: 500,
-     };
+    };
     this.nativePageTransitions.slide(options)
     this.navCtrl.push(QrPage);
   }
 
-  openScanner(){
-    this.barcodeScanner.scan().then(user =>{
-      console.log(user);
-      /*this.firefriends.child(firebase.auth().currentUser.uid).push({
-        uid: user
+  openScanner() {
+    this.barcodeScanner.scan().then(user => {
+      this.firefriends.child(firebase.auth().currentUser.uid).push({
+        uid: user.text
       }).then(() => {
-        this.firefriends.child(user).push({
+        this.firefriends.child(user.text).push({
           uid: firebase.auth().currentUser.uid
-        });
+        }).then(() => {
+          let newalert = this.alertCtrl.create({
+            title: 'Amigo añadido',
+            subTitle: 'Ya puedes chatear con tu amigo',
+            buttons: [{
+              text: 'Ok',
+              handler: data => {
+                this.navCtrl.pop();
+              }
+            }]
+          });
+          newalert.present();
+        })
+        this.events.publish('friends');
       });
-    }).catch(error =>{
-      console.log(error);*/
+    }).catch(error => {
+      console.log(error);
     })
   }
 }

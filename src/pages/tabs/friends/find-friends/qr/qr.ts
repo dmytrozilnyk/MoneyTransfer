@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { NativePageTransitions, NativeTransitionOptions } from '@ionic-native/native-page-transitions';
 import firebase from 'firebase';
+import { NgxQRCodeModule } from 'ngx-qrcode2';
 
 @IonicPage()
 @Component({

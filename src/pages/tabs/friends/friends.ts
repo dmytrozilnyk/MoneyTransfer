@@ -16,6 +16,7 @@ export class FriendsPage {
   request:boolean;
   requests: any[];
   friends: any[];
+  loading: Loading;
   
   constructor(public navCtrl: NavController, public navParams: NavParams,
     public requestService: RequestsProvider, public events: Events,
@@ -42,7 +43,12 @@ export class FriendsPage {
       this.friends = [];
       this.friends = this.requestService.myfriends;
       this.filteredUsers = this.friends;
+      this.loading.dismiss()
     });
+    this.loading = this.loadingCtrl.create({
+      dismissOnPageChange: true,
+    });
+    this.loading.present();
   }
 
   ionViewDidLeave() {

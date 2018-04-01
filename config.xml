@@ -103,6 +103,6 @@
     <plugin name="com.synconset.imagepicker" spec="~2.1.8">
         <variable name="PHOTO_LIBRARY_USAGE_DESCRIPTION" value="Allows users to select a profile picture for their profile." />
     </plugin>
-    <engine name="android" spec="~6.3.0" />
-    <engine name="ios" spec="~4.5.4" />
+    <engine name="android" spec="6.3.0" />
+    <engine name="ios" spec="4.5.4" />
 </widget>
