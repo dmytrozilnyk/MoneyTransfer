@@ -41,6 +41,8 @@ import { Camera } from '@ionic-native/camera';
 import { ImagePicker } from '@ionic-native/image-picker';
 import { Base64 } from '@ionic-native/base64';
 import { NativePageTransitions } from '@ionic-native/native-page-transitions';
+import { NgxQRCodeModule } from 'ngx-qrcode2';
+import { BarcodeScanner } from '@ionic-native/barcode-scanner';
 
 import { RequestsProvider } from '../providers/requests/requests';
 import { UserProvider } from '../providers/user/user';
@@ -50,7 +52,7 @@ import { ChatProvider } from '../providers/chat/chat';
 @NgModule({
   declarations: [
     MyApp,
-    /*LoginPage,
+    LoginPage,
     TabsPage,
     RegisterPage,
     CreateAccountPage,
@@ -70,7 +72,7 @@ import { ChatProvider } from '../providers/chat/chat';
     WithdrawPage,
     SentPage,
     RequestPage,
-    DepositPage*/
+    DepositPage
   ],
   imports: [
     BrowserModule,
@@ -80,7 +82,9 @@ import { ChatProvider } from '../providers/chat/chat';
       }),
       AngularFireModule.initializeApp(config),
       HttpClientModule,
-      IonicStorageModule.forRoot()
+      IonicStorageModule.forRoot(),
+      NgxQRCodeModule 
+      
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -120,7 +124,8 @@ import { ChatProvider } from '../providers/chat/chat';
     RequestsProvider,
     UserProvider,
     ChatProvider ,
-    NativePageTransitions
+    NativePageTransitions,
+    BarcodeScanner
   ]
 })
 export class AppModule {}

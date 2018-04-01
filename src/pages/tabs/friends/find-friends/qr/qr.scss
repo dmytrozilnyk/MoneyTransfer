@@ -14,4 +14,11 @@ page-qr {
         color: rgb(42, 236, 193) !important;
         padding-left: 5%;
     }
+    .scroll-content{
+        align-content: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+    }
 }

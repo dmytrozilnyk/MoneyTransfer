@@ -6,6 +6,7 @@ import { NativePageTransitions, NativeTransitionOptions } from '@ionic-native/na
 import firebase from 'firebase';
 import { ConnRequest } from '../../../../models/interface/request';
 import { QrPage } from './qr/qr';
+import { BarcodeScanner } from '@ionic-native/barcode-scanner';
 
 @IonicPage()
 @Component({
@@ -14,6 +15,7 @@ import { QrPage } from './qr/qr';
 })
 export class FindFriendsPage {
 
+  firefriends = firebase.database().ref('/friends');
   firedata = firebase.database().ref('/chat');
   friends: any;
   temparr = [];
@@ -25,7 +27,8 @@ export class FindFriendsPage {
   constructor(public navCtrl: NavController, public navParams: NavParams,
     public loadingCtrl: LoadingController, public alertCtrl: AlertController,
     public requestService: RequestsProvider, public userService: UserProvider,
-    public events: Events,private nativePageTransitions: NativePageTransitions) {
+    public events: Events,private nativePageTransitions: NativePageTransitions,
+    private barcodeScanner: BarcodeScanner) {
   }
 
   ionViewDidLoad() {
@@ -103,6 +106,17 @@ export class FindFriendsPage {
   }
 
   openScanner(){
-
+    this.barcodeScanner.scan().then(user =>{
+      console.log(user);
+      /*this.firefriends.child(firebase.auth().currentUser.uid).push({
+        uid: user
+      }).then(() => {
+        this.firefriends.child(user).push({
+          uid: firebase.auth().currentUser.uid
+        });
+      });
+    }).catch(error =>{
+      console.log(error);*/
+    })
   }
 }

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { NativePageTransitions, NativeTransitionOptions } from '@ionic-native/native-page-transitions';
-
+import firebase from 'firebase';
 
 @IonicPage()
 @Component({
@@ -10,11 +10,14 @@ import { NativePageTransitions, NativeTransitionOptions } from '@ionic-native/na
 })
 export class QrPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams,private nativePageTransitions: NativePageTransitions) {
+  createdCode = null;
+  constructor(public navCtrl: NavController, public navParams: NavParams,
+              private nativePageTransitions: NativePageTransitions) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad QrPage');
+    this.createdCode = firebase.auth().currentUser.uid;
+    console.log(this.createdCode);
   }
 
   goBack(){
@@ -26,5 +29,5 @@ export class QrPage {
     this.nativePageTransitions.slide(options);
     this.navCtrl.pop();
   }
-
+  
 }
