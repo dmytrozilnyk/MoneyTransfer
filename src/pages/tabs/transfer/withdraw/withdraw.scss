@@ -14,4 +14,37 @@ page-withdraw {
         color: rgb(42, 236, 193) !important;
         padding-left: 5%;
     }
+    .scroll-content{
+        align-content: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: top;
+        text-align: center;
+    }
+    .item-divider {
+        padding-left: 16px;
+        padding-left: 16px;
+        color: #222;
+        background-color: #f7f7f7;
+        margin-top: 30px;
+    }
+    .textTitle{
+        font-weight: bold;
+        font-size: 1em;
+        color: #504e4e;
+        padding-top: 2px;
+    }
+    .bottomBoton{
+        margin: 0;
+        padding: 0;
+        position: absolute;
+        bottom: 0;
+        background-color: #ca2e64 !important;
+        color: rgba(255, 255, 255, 1);
+        font-weight: bold;
+
+    }
+    ion-select {
+        min-width: 77% !important;
+   }
 }

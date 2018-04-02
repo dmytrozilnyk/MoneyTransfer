@@ -5,5 +5,25 @@
     </ion-navbar>
 </ion-header>
 <ion-content padding>
-
+    <ion-list>
+        <ion-item-divider item-start>
+            <h3 class="textTitle">Datos de la operación</h3>
+            <ion-icon ios="ios-paper-outline" md="md-paper" color="rosita" item-start></ion-icon>
+        </ion-item-divider>
+        <ion-item>
+            <ion-label style="font-weight: bold">Destino</ion-label>
+            <ion-select *ngIf="cards.length != 0" [(ngModel)]="card" interface="popover" placeholder="Selecciona una tarjeta">
+                <ion-option *ngFor="let card of cards;let i = index">**** **** **** 1234</ion-option>
+            </ion-select>
+            <ion-select *ngIf="cards.length == 0" [(ngModel)]="card" interface="popover" placeholder="Selecciona una tarjeta">
+                <ion-option> + Añadir Tarjeta</ion-option>
+            </ion-select>
+        </ion-item>
+        <ion-item>
+            <ion-label style="font-weight: bold">Cantidad</ion-label>
+            <ion-input type="number" [(ngModel)]="amount" maxlength="7" placeholder="Introduce la cantidad"></ion-input>
+            <ion-icon name="logo-euro" item-end></ion-icon>
+        </ion-item>
+    </ion-list>
+    <button ion-button full class="bottomBoton" (click)="withdraw()">RETIRAR</button>
 </ion-content>

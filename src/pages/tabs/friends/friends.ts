@@ -17,6 +17,7 @@ export class FriendsPage {
   requests: any[];
   friends: any[];
   loading: Loading;
+  action;
   
   constructor(public navCtrl: NavController, public navParams: NavParams,
     public requestService: RequestsProvider, public events: Events,

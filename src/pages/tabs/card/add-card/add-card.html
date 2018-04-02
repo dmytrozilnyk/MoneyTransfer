@@ -5,7 +5,27 @@
     </ion-navbar>
 </ion-header>
 <ion-content padding>
-</ion-content>
-<ion-content padding>
-
+    <ion-list>
+        <ion-item-divider item-start>
+            <h3 class="textTitle">Información de la tarjeta</h3>
+            <ion-icon ios="ios-card-outline" md="md-card" color="rosita" item-start></ion-icon>
+        </ion-item-divider>
+        <ion-item>
+            <ion-label style="font-weight: bold">Nombre</ion-label>
+            <ion-input type="text" [(ngModel)]="nameCard" placeholder="Titular de la tarjeta"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label style="font-weight: bold">Número</ion-label>
+            <ion-input type="tel" [(ngModel)]="numberCard" maxlength="16" minlength="16" placeholder="Número de la tarjeta"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label style="font-weight: bold">Fecha</ion-label>
+            <ion-datetime displayFormat="MM/YYYY" [(ngModel)]="date" min="2018" max="2028-12" placeholder="Fecha de caducidad"></ion-datetime>
+        </ion-item>
+        <ion-item>
+            <ion-label style="font-weight: bold; margin-right:11%">CVV</ion-label>
+            <ion-input type="password" [(ngModel)]="cvv" placeholder="Código de verificacion de tarjeta"></ion-input>
+        </ion-item>
+    </ion-list>
+    <button ion-button full class="bottomBoton" (click)="addCard()">AÑADIR TARJETA</button>
 </ion-content>

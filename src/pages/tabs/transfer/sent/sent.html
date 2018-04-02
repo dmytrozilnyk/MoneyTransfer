@@ -5,5 +5,22 @@
     </ion-navbar>
 </ion-header>
 <ion-content padding>
-
+    <ion-list>
+        <ion-item-divider item-start>
+            <h3 class="textTitle">Datos de la operación</h3>
+            <ion-icon ios="ios-paper-outline" md="md-paper" color="rosita" item-start></ion-icon>
+        </ion-item-divider>
+        <ion-item>
+            <ion-label style="font-weight: bold">Destino</ion-label>
+            <ion-select [(ngModel)]="friend" interface="popover" placeholder="Selecciona un amigo">
+                <ion-option *ngFor="let user of friends;let i = index">{{user.displayName}}</ion-option>
+            </ion-select>
+        </ion-item>
+        <ion-item>
+            <ion-label style="font-weight: bold">Cantidad</ion-label>
+            <ion-input type="number" [(ngModel)]="amount" maxlength="7" placeholder="Introduce la cantidad"></ion-input>
+            <ion-icon name="logo-euro" item-end></ion-icon>
+        </ion-item>
+    </ion-list>
+    <button ion-button full class="bottomBoton" (click)="send()">ENVIAR</button>
 </ion-content>
