@@ -1,7 +1,8 @@
 import { Component, ViewChild, NgZone } from '@angular/core';
-import { IonicPage, NavController, NavParams, Content, Events } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, Content, Events, PopoverController } from 'ionic-angular';
 import { ChatProvider } from '../../../../providers/chat/chat';
 import firebase from 'firebase';
+import { PopoverComponent } from '../../../../components/popover/popover';
 
 @IonicPage()
 @Component({
@@ -18,7 +19,7 @@ export class ChatPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
               public chatService: ChatProvider,public events: Events,
-              public zone: NgZone) {
+              public zone: NgZone, public popoverCtrl: PopoverController) {
     this.friend = this.chatService.friend;
     this.photoURL = firebase.auth().currentUser.photoURL;
     this.scrollto();
@@ -47,8 +48,11 @@ export class ChatPage {
     }, 500);
   }
 
-  acctions(){
-    console.log();
+  action(event){
+    let popover = this.popoverCtrl.create(PopoverComponent);
+    popover.present({
+      ev: event
+    });
   }
 
   goBack(){

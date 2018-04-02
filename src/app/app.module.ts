@@ -27,6 +27,8 @@ import { SentPage } from './../pages/tabs/transfer/sent/sent';
 import { RequestPage } from '../pages/tabs/transfer/request/request';
 import { DepositPage } from '../pages/tabs/transfer/deposit/deposit';
 
+import { PopoverComponent } from '../components/popover/popover';
+
 import { AngularFireAuth } from 'angularfire2/auth';
 import { AngularFireModule } from 'angularfire2';
 import { ApiClientService } from '../client/index';
@@ -72,7 +74,8 @@ import { ChatProvider } from '../providers/chat/chat';
     WithdrawPage,
     SentPage,
     RequestPage,
-    DepositPage
+    DepositPage,
+    PopoverComponent
   ],
   imports: [
     BrowserModule,
@@ -109,7 +112,8 @@ import { ChatProvider } from '../providers/chat/chat';
     WithdrawPage,
     SentPage,
     RequestPage,
-    DepositPage
+    DepositPage,
+    PopoverComponent
   ],
   providers: [
     StatusBar,
