@@ -38,10 +38,6 @@ export class AddCardPage {
     }else if(this.cvv == "" || !this.cvv){
       let error="Debes introducir el CVV";
       this.showToast(error);
-    }else if(typeof(this.cvv)!="number"){
-      let error="El CVV debe ser un número";
-      this.showToast(error);
-      this.cvv = ""
     }else{
       this.goBack();
     }
@@ -65,7 +61,7 @@ export class AddCardPage {
       cssClass: "toastStyle",
     });
     toast.onDidDismiss(() => {
-      this.goBack();
+      console.log('Dismissed toast');
     });
     toast.present();
   }
