@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ToastController, Events, LoadingController, Loading } from 'ionic-angular';
 import { NativePageTransitions, NativeTransitionOptions } from '@ionic-native/native-page-transitions';
+import { RequestsProvider } from '../../../../providers/requests/requests';
 
 @IonicPage()
 @Component({
@@ -9,11 +10,43 @@ import { NativePageTransitions, NativeTransitionOptions } from '@ionic-native/na
 })
 export class SentPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams,private nativePageTransitions: NativePageTransitions) {
+  friends:any;
+  friend:any;
+  amount:number
+  loading: Loading;
+
+  constructor(public navCtrl: NavController, public navParams: NavParams,
+    private nativePageTransitions: NativePageTransitions,public toastCtrl: ToastController,
+    public events: Events ,public loadingCtrl: LoadingController,public requestService: RequestsProvider) {
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad SentPage');
+  ionViewWillEnter() {
+    this.requestService.getFriends();
+    this.events.subscribe('friends', () => {
+      this.friends = [];
+      this.friends = this.requestService.myfriends;
+      this.loading.dismiss()
+    });
+    this.loading = this.loadingCtrl.create({
+      dismissOnPageChange: true,
+    });
+    this.loading.present();
+  }
+
+  ionViewDidLeave() {
+    this.events.unsubscribe('friends');
+  }
+
+  send(){
+    if(this.friend==""){
+      let error="Debes elegir una amigo"
+      this.showToast(error);
+    }else if(this.amount == null || !this.amount){
+      let error="Debes introducir una cantidad";
+      this.showToast(error);
+    }else{
+      this.goBack();
+    }
   }
 
   goBack(){
@@ -21,9 +54,22 @@ export class SentPage {
       direction: 'down',
       duration: 500
     };
-
     this.nativePageTransitions.slide(options);
     this.navCtrl.pop();
   }
 
+  showToast(error) {
+    let toast = this.toastCtrl.create({
+      message: error,
+      duration: 2000,
+      position: 'top',
+      dismissOnPageChange: true,
+      cssClass: "toastStyle",
+    });
+    toast.onDidDismiss(() => {
+      console.log('Dismissed toast');
+    });
+    toast.present();
+  }
 }
+

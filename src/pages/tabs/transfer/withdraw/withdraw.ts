@@ -59,7 +59,7 @@ export class WithdrawPage {
       cssClass: "toastStyle",
     });
     toast.onDidDismiss(() => {
-      this.goBack();
+      console.log('Dismissed toast');
     });
     toast.present();
   }
