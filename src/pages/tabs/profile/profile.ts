@@ -8,6 +8,7 @@ import { ApiClientService } from '../../../client';
 import { Base64 } from '@ionic-native/base64';
 import { SettingPage } from './setting/setting';
 import { Storage } from '@ionic/storage';
+import { FingerprintAIO } from '@ionic-native/fingerprint-aio';
 
 @IonicPage()
 @Component({
@@ -16,6 +17,7 @@ import { Storage } from '@ionic/storage';
 })
 export class ProfilePage {
 
+  securityValue: any;
   showInformation: boolean;
   image: string = "noImage";
   name: string;
@@ -34,7 +36,8 @@ export class ProfilePage {
     private camera: Camera, private imagePicker: ImagePicker,
     public actionsheetCtrl: ActionSheetController, public platform: Platform,
     public events: Events, private _auth: AngularFireAuth, private apiBlockchain: ApiClientService,
-    private base64: Base64, public loadingCtrl: LoadingController, public app: App, private storage: Storage) {
+    private base64: Base64, public loadingCtrl: LoadingController, public app: App, private storage: Storage,
+    private faio: FingerprintAIO) {
     this.showInformation = false;
     this.isRead = false;
     this.isNotRead = false;
@@ -52,6 +55,7 @@ export class ProfilePage {
       this.country = user.country;
       this.phoneNumber = user.phoneNumber;
       this.image = user.image;
+      this.securityValue = user.securityValue;
       this.showInformation = true;
       loading.dismiss();
     });
@@ -62,6 +66,22 @@ export class ProfilePage {
   }
 
   acceptInfo() {
+    if(this.securityValue.remove){
+      this.faio.show({
+        clientId: 'Fingerprint-Demo',
+        clientSecret: 'password', //Only necessary for Android
+        disableBackup: true,  //Only for Android(optional)
+        localizedFallbackTitle: 'Use Pin', //Only for iOS
+        localizedReason: 'Please authenticate' //Only for iOS
+      })
+        .then((result: any) => this.updateInfo())
+        .catch((error: any) => console.log(error));
+    }else{
+      this.updateInfo();
+    }
+  }
+
+  updateInfo() {
     var loading = this.loadingCtrl.create();
     loading.present();
     this.isRead = false;
@@ -78,11 +98,11 @@ export class ProfilePage {
       result => {
         console.log(result);
         this.apiBlockchain.getUserId(this._auth.auth.currentUser.uid).subscribe(
-          result=>{
+          result => {
             loading.dismiss();
             this.storage.set('user', result.body);
           },
-          error=>{
+          error => {
             loading.dismiss();
             console.log(error)
           });
