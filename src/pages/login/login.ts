@@ -40,6 +40,7 @@ export class LoginPage {
         var credential={
           "$class": "org.transfer.tfg.Login",
           "user": "resource:org.transfer.tfg.User#"+this._auth.auth.currentUser.uid,
+          "loginDate": new Date()
         }
         this.apiBlockChain.login(credential).subscribe(
           result=>{

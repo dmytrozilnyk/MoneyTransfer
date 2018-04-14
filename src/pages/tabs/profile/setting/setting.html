@@ -1,6 +1,6 @@
 <ion-header>
     <ion-navbar hideBackButton="true">
-        <ion-icon class="iconArrow" md="md-arrow-back" ios="ios-arrow-round-back" (click)="goBack()" item-start></ion-icon>
+        <ion-icon class="iconArrow" md="md-arrow-back" ios="ios-arrow-round-back" (click)="setSecurity()" item-start></ion-icon>
         <ion-title>Seguridad</ion-title>
     </ion-navbar>
 </ion-header>
@@ -8,22 +8,22 @@
     <ion-item>
         <ion-icon ios="ios-finger-print-outline" md="md-finger-print" color="danger" item-start></ion-icon>
         <ion-label> TouchID</ion-label>
-        <ion-toggle checked="false" color="secondary" [(ngModel)]="seguridad"></ion-toggle>
+        <ion-toggle checked="false" color="secondary" [(ngModel)]="seguridad" (ionChange)="onSelectChange($event)"></ion-toggle>
     </ion-item>
     <ion-item>
         <ion-label class="textTouchId">Al retirar saldo</ion-label>
-        <ion-checkbox color="secondary" [disabled]="!seguridad" checked="false"></ion-checkbox>
+        <ion-checkbox color="secondary" [disabled]="!seguridad" [(ngModel)]="withdraw" (ionChange)="onSelectChange($event)"></ion-checkbox>
     </ion-item>
     <ion-item>
         <ion-label class="textTouchId">Al cargar saldo</ion-label>
-        <ion-checkbox color="secondary" [disabled]="!seguridad" checked="false"></ion-checkbox>
+        <ion-checkbox color="secondary" [disabled]="!seguridad" [(ngModel)]="deposite" (ionChange)="onSelectChange($event)"></ion-checkbox>
     </ion-item>
     <ion-item>
         <ion-label class="textTouchId">Al enviar dinero</ion-label>
-        <ion-checkbox color="secondary" [disabled]="!seguridad" checked="false"></ion-checkbox>
+        <ion-checkbox color="secondary" [disabled]="!seguridad"  [(ngModel)]="send" (ionChange)="onSelectChange($event)"></ion-checkbox>
     </ion-item>
     <ion-item>
         <ion-label class="textTouchId">Al modificar datos de usuario</ion-label>
-        <ion-checkbox color="secondary" [disabled]="!seguridad" checked="false"></ion-checkbox>
+        <ion-checkbox color="secondary" [disabled]="!seguridad" [(ngModel)]="remove" (ionChange)="onSelectChange($event)"></ion-checkbox>
     </ion-item>
 </ion-content>

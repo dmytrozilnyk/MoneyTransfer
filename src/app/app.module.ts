@@ -46,6 +46,7 @@ import { NativePageTransitions } from '@ionic-native/native-page-transitions';
 import { NgxQRCodeModule } from 'ngx-qrcode2';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner';
 
+
 import { RequestsProvider } from '../providers/requests/requests';
 import { UserProvider } from '../providers/user/user';
 import { ChatProvider } from '../providers/chat/chat';

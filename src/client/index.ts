@@ -19,19 +19,19 @@ export class ApiClientService {
     let params = new HttpParams();
     return this.sendRequest<any>('post', uri, headers, params, JSON.stringify(user));
   }
-
-  public getUsers(): Observable<HttpResponse<any>> {
-    let uri = `/api/User`;
+  
+  public updateProfile(updateProfile:any):Observable<HttpResponse<any>> {
+    let uri = `/api/UpdateProfile`;
     let headers = new HttpHeaders();
     let params = new HttpParams();
-    return this.sendRequest<any>('get', uri, headers, params, null);
+    return this.sendRequest<any>('post', uri, headers, params, JSON.stringify(updateProfile));
   }
 
-  public getUserId(id:string): Observable<HttpResponse<any>> {
-    let uri = `/api/User/` +id;
+  public securityOptions(securityOptions:any):Observable<HttpResponse<any>> {
+    let uri = `/api/SecurityOptions`;
     let headers = new HttpHeaders();
     let params = new HttpParams();
-    return this.sendRequest<any>('get', uri, headers, params, null);
+    return this.sendRequest<any>('post', uri, headers, params, JSON.stringify(securityOptions));
   }
 
   public login(credentials: any): Observable<HttpResponse<any>> {
@@ -41,19 +41,89 @@ export class ApiClientService {
     return this.sendRequest<any>('post', uri, headers, params, JSON.stringify(credentials));
   }
 
-  public addProfileFoto(credentials: any): Observable<HttpResponse<any>> {
-    let uri = `/api/AddProfileFoto`;
+  public sendMoney(sendMoney:any):Observable<HttpResponse<any>> {
+    let uri = `/api/SendMoney`;
     let headers = new HttpHeaders();
     let params = new HttpParams();
-    return this.sendRequest<any>('post', uri, headers, params, JSON.stringify(credentials));
+    return this.sendRequest<any>('post', uri, headers, params, JSON.stringify(sendMoney));
   }
 
- /* public deleteContract(id:string): Observable<HttpResponse<any>> {
-    let uri = `/api/Contract/` + id;
+  public requestMoney(requestMoney:any):Observable<HttpResponse<any>> {
+    let uri = `/api/RequestMoney`;
     let headers = new HttpHeaders();
     let params = new HttpParams();
-    return this.sendRequest<any>('delete', uri, headers, params, null);
-  }*/
+    return this.sendRequest<any>('post', uri, headers, params, JSON.stringify(requestMoney));
+  }
+
+  public acceptRequest(acceptRequest:any):Observable<HttpResponse<any>> {
+    let uri = `/api/AcceptRequest`;
+    let headers = new HttpHeaders();
+    let params = new HttpParams();
+    return this.sendRequest<any>('post', uri, headers, params, JSON.stringify(acceptRequest));
+  }
+
+  public rejectRequest(rejectRequest:any):Observable<HttpResponse<any>> {
+    let uri = `/api/RejectRequest`;
+    let headers = new HttpHeaders();
+    let params = new HttpParams();
+    return this.sendRequest<any>('post', uri, headers, params, JSON.stringify(rejectRequest));
+  }
+
+  public depositMoney(depositMoney:any):Observable<HttpResponse<any>> {
+    let uri = `/api/DepositMoney`;
+    let headers = new HttpHeaders();
+    let params = new HttpParams();
+    return this.sendRequest<any>('post', uri, headers, params, JSON.stringify(depositMoney));
+  }
+
+  public withdrawMoney(withdrawMoney:any):Observable<HttpResponse<any>> {
+    let uri = `/api/WithdrawMoney`;
+    let headers = new HttpHeaders();
+    let params = new HttpParams();
+    return this.sendRequest<any>('post', uri, headers, params, JSON.stringify(withdrawMoney));
+  }
+
+  public addCreditCard(addCreditCard:any):Observable<HttpResponse<any>> {
+    let uri = `/api/AddCreditCard`;
+    let headers = new HttpHeaders();
+    let params = new HttpParams();
+    return this.sendRequest<any>('post', uri, headers, params, JSON.stringify(addCreditCard));
+  }
+
+  public deleteCreditCard(deleteCreditCard:any):Observable<HttpResponse<any>> {
+    let uri = `/api/DeleteCreditCard`;
+    let headers = new HttpHeaders();
+    let params = new HttpParams();
+    return this.sendRequest<any>('post', uri, headers, params, JSON.stringify(deleteCreditCard));
+  }
+
+  public getUserId(id:string): Observable<HttpResponse<any>> {
+    let uri = `/api/queries/GetUserId`;
+    let headers = new HttpHeaders();
+    let params = new HttpParams();
+    return this.sendRequest<any>('get', uri, headers, params.set('userId',id), null);
+  }
+
+  public getUserRequest(id:string): Observable<HttpResponse<any>> {
+    let uri = `/api/queries/GetUserRequest`;
+    let headers = new HttpHeaders();
+    let params = new HttpParams().set('status', 'CREATED').set('destination','resource:org.transfer.tfg.User#'+id);
+    return this.sendRequest<any>('get', uri, headers, params, null);
+  }
+
+  public getUserOperations(id:string): Observable<HttpResponse<any>> {
+    let uri = `/api/queries/GetUserOperations`;
+    let headers = new HttpHeaders();
+    let params = new HttpParams().set('user','resource:org.transfer.tfg.User#'+id);
+    return this.sendRequest<any>('get', uri, headers, params, null);
+  }
+
+  public getUserCreditCard(id:string): Observable<HttpResponse<any>> {
+    let uri = `/api/queries/GetUserCreditCard`;
+    let headers = new HttpHeaders();
+    let params = new HttpParams().set('owner','resource:org.transfer.tfg.User#'+id);
+    return this.sendRequest<any>('get', uri, headers, params, null);
+  }
 
   private sendRequest<T>(method: string, uri: string, headers: HttpHeaders, params: HttpParams, body: any): Observable<HttpResponse<T>> {
     if (method === 'post') {

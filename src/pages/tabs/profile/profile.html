@@ -3,8 +3,7 @@
         <ion-row justify-content-start class="rowFoto">
             <ion-col col-4 offset-4 align-self-center>
                 <div class="img" (click)="openMenu()">
-                    <img *ngIf="image==='noImage'  || !image" class="imagen" src="assets/imgs/PersonPlaceholder.png">
-                    <img [src]="image" *ngIf="image!=='noImage'" />
+                    <img class="imagen" src="assets/imgs/PersonPlaceholder.png">
                 </div>
                 <p class="text" (click)="openMenu()">Cambiar foto</p>
             </ion-col>
@@ -30,7 +29,7 @@
 
                     <ion-item>
                         <ion-icon ios="ios-mail" md="md-mail" color="perfilIcon" item-start></ion-icon>
-                        <ion-input type="email" [(ngModel)]="email" [readonly]="!isRead"></ion-input>
+                        <ion-input type="email" [(ngModel)]="email" [readonly]="!isNotRead"></ion-input>
                     </ion-item>
 
                     <ion-item>

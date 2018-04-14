@@ -33,7 +33,7 @@ export class ProfileFotoPage {
   }
 
   changeFoto(){
-    let foto = {
+    /*let foto = {
       "$class": "org.transfer.tfg.AddProfileFoto",
       "user": "resource:org.transfer.tfg.User#"+ this._auth.auth.currentUser.uid,
       "image": this.image64
@@ -51,7 +51,8 @@ export class ProfileFotoPage {
       this.loading = this.loadingCtrl.create({
         dismissOnPageChange: true,
       });
-      this.loading.present();
+      this.loading.present();*/
+      this.navCtrl.setRoot(TabsPage);
   }
 
   openMenu() {
