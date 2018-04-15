@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ToastController, Events, LoadingController } from 'ionic-angular';
 import { NativePageTransitions, NativeTransitionOptions } from '@ionic-native/native-page-transitions';
+import { ApiClientService } from '../../../../client';
+import { AngularFireAuth } from 'angularfire2/auth';
 
 
 @IonicPage()
@@ -16,16 +18,18 @@ export class AddCardPage {
   cvv:string
   constructor(public navCtrl: NavController, public navParams: NavParams,
               private nativePageTransitions: NativePageTransitions, public toastCtrl: ToastController,
-              public events: Events ,public loadingCtrl: LoadingController) {
+              public events: Events ,public loadingCtrl: LoadingController,private apiBlockchain: ApiClientService,
+              private _auth: AngularFireAuth) {
                 this.nameCard = this.cvv = this.date = "";
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad AddCardPage');
+  ionViewDidEnter(){
+   console.log("Add credit card")
   }
 
   addCard(){
-    console.log(this.date)
+    var loading = this.loadingCtrl.create();
+    loading.present();
     if(this.nameCard==""){
       let error="Debes introducir el nombre del titular";
       this.showToast(error);
@@ -39,7 +43,25 @@ export class AddCardPage {
       let error="Debes introducir el CVV";
       this.showToast(error);
     }else{
-      this.goBack();
+      let card = {
+        "$class": "org.transfer.tfg.AddCreditCard",
+        "owner": "resource:org.transfer.tfg.User#" + this._auth.auth.currentUser.uid,
+        "ownerName": this.nameCard,
+        "number": this.numberCard,
+        "expireDate": this.date,
+        "cvv": this.cvv,
+        "addTime": new Date()
+      }
+      this.apiBlockchain.addCreditCard(card).subscribe(
+        result =>{
+          console.log(result)
+          loading.dismiss();
+          this.goBack();
+        },
+        error=>{
+          console.log(error)
+          loading.dismiss();
+        });
     }
   }
 

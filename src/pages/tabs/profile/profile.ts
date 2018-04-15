@@ -38,12 +38,12 @@ export class ProfilePage {
     public events: Events, private _auth: AngularFireAuth, private apiBlockchain: ApiClientService,
     private base64: Base64, public loadingCtrl: LoadingController, public app: App, private storage: Storage,
     private faio: FingerprintAIO) {
+  }
+
+ionViewWillEnter() {
     this.showInformation = false;
     this.isRead = false;
     this.isNotRead = false;
-  }
-
-  ionViewDidLoad() {
     var loading = this.loadingCtrl.create();
     loading.present();
     this.storage.get('user').then((result) => {
@@ -55,7 +55,6 @@ export class ProfilePage {
       this.country = user.country;
       this.phoneNumber = user.phoneNumber;
       this.image = user.image;
-      this.securityValue = user.securityValue;
       this.showInformation = true;
       loading.dismiss();
     });
@@ -66,19 +65,7 @@ export class ProfilePage {
   }
 
   acceptInfo() {
-    if(this.securityValue.remove){
-      this.faio.show({
-        clientId: 'Fingerprint-Demo',
-        clientSecret: 'password', //Only necessary for Android
-        disableBackup: true,  //Only for Android(optional)
-        localizedFallbackTitle: 'Use Pin', //Only for iOS
-        localizedReason: 'Please authenticate' //Only for iOS
-      })
-        .then((result: any) => this.updateInfo())
-        .catch((error: any) => console.log(error));
-    }else{
-      this.updateInfo();
-    }
+    this.updateInfo();
   }
 
   updateInfo() {

@@ -13,6 +13,28 @@
                 </button>
             </ion-col>
         </ion-row>
+        <ion-row no-padding>
+            <ion-col col-12>
+                <ion-list *ngFor="let card of cards">
+                    <ion-item-sliding #slidingItem>
+                        <ion-item>
+                            <ion-card>
+                                <img src="assets/imgs/visa.png" />
+                                <div class="card-number">{{card.number}}</div>
+                                <div class="card-date">{{card.expireDate}}</div>
+                                <div class="card-name">{{card.ownerName}}</div>
+                            </ion-card>
+                        </ion-item>
+                        <ion-item-options side="right">
+                            <button ion-button color="danger" style="background-color: red;" (click)="deleteCard(card, slidingItem)">
+                                <ion-icon name="trash"></ion-icon>
+                                Eliminar
+                            </button>
+                        </ion-item-options>
+                    </ion-item-sliding>
+                </ion-list>
+            </ion-col>
+        </ion-row>
     </ion-grid>
 </ion-content>
 
