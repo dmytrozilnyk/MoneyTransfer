@@ -8,10 +8,20 @@
   <ion-grid no-padding>
     <ion-row>
       <ion-col col-2 offset-5 align-self-center>
-        <ion-icon name="trending-up" class="iconTrend"></ion-icon>
+        <ion-icon  *ngIf="type=='DEPOSIT'" name="trending-up" class="iconTrend"></ion-icon>
+        <ion-icon  *ngIf="type=='WITHDRAW'" name="trending-down" class="iconTrend"></ion-icon>
+        <ion-icon  *ngIf="type=='SENT' && user == myId" name="trending-down" class="iconTrend"></ion-icon>
+        <ion-icon  *ngIf="type=='SENT' && user != myId" name="trending-up" class="iconTrend"></ion-icon>
+        <ion-icon  *ngIf="type=='REQUEST' && user == myId" name="trending-up" class="iconTrend"></ion-icon>
+        <ion-icon  *ngIf="type=='REQUEST' && user != myId" name="trending-down" class="iconTrend"></ion-icon>
       </ion-col>
       <ion-col col-12 align-self-center>
-        <h1 class="amount"> + 20.5 €</h1>
+        <h1  *ngIf="type=='DEPOSIT'" class="amountGreen"> + {{amount}} €</h1>
+        <h1  *ngIf="type=='WITHDRAW'" class="amountRed"> - {{amount}} €</h1>
+        <h1  *ngIf="type=='SENT' && user == myId" class="amountRed"> - {{amount}} €</h1>
+        <h1  *ngIf="type=='SENT' && user != myId" class="amountGreen"> + {{amount}} €</h1>
+        <h1  *ngIf="type=='REQUEST' && user == myId" class="amountGreen"> + {{amount}} €</h1>
+        <h1  *ngIf="type=='REQUEST' && user != myId" class="amountRed"> - {{amount}} €</h1>
       </ion-col>
     </ion-row>
     <ion-row no-padding>
@@ -23,16 +33,25 @@
               <ion-item class="firstItem">Origen</ion-item>
             </ion-col>
             <ion-col col-8 no-padding>
-              <ion-item class="secondItem">Jessica Balladares</ion-item>
+              <ion-item class="secondItem">{{nameOrigin}}</ion-item>
             </ion-col>
           </ion-row>
+
+          <ion-row no-padding>
+              <ion-col col-4 no-padding>
+                <ion-item class="firstItem">Destino</ion-item>
+              </ion-col>
+              <ion-col col-8 no-padding>
+                <ion-item class="secondItem">{{nameDestination}}</ion-item>
+              </ion-col>
+            </ion-row>
 
           <ion-row no-padding>
             <ion-col col-4 no-padding>
               <ion-item class="firstItem">Categoria</ion-item>
             </ion-col>
             <ion-col col-8 no-padding>
-              <ion-item class="secondItem">Enviado</ion-item>
+              <ion-item class="secondItem">{{category}}</ion-item>
             </ion-col>
           </ion-row>
 
@@ -41,7 +60,7 @@
               <ion-item class="firstItem">Fecha Valor</ion-item>
             </ion-col>
             <ion-col col-8 no-padding>
-              <ion-item class="secondItem">18/04/2018</ion-item>
+              <ion-item class="secondItem">{{day}}</ion-item>
             </ion-col>
           </ion-row>
 
@@ -50,7 +69,7 @@
               <ion-item class="firstItem">Hora Operacion</ion-item>
             </ion-col>
             <ion-col col-6 no-padding>
-              <ion-item class="secondItem">12:34:43</ion-item>
+              <ion-item class="secondItem">{{hour}}</ion-item>
             </ion-col>
           </ion-row>
 

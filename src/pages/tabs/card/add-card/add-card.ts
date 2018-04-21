@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams, ToastController, Events, LoadingCo
 import { NativePageTransitions, NativeTransitionOptions } from '@ionic-native/native-page-transitions';
 import { ApiClientService } from '../../../../client';
 import { AngularFireAuth } from 'angularfire2/auth';
+import { CardIO } from '@ionic-native/card-io';
 
 
 @IonicPage()
@@ -14,12 +15,12 @@ export class AddCardPage {
 
   nameCard:string 
   numberCard: number
-  date:string;
+  date:any;
   cvv:string
   constructor(public navCtrl: NavController, public navParams: NavParams,
               private nativePageTransitions: NativePageTransitions, public toastCtrl: ToastController,
               public events: Events ,public loadingCtrl: LoadingController,private apiBlockchain: ApiClientService,
-              private _auth: AngularFireAuth) {
+              private _auth: AngularFireAuth, private cardIO: CardIO) {
                 this.nameCard = this.cvv = this.date = "";
   }
 
@@ -65,6 +66,29 @@ export class AddCardPage {
     }
   }
 
+  cardScaner(){
+    this.cardIO.canScan()
+    .then(
+      (res: boolean) => {
+        if(res){
+          let options = {
+            requireCardholderName:true,
+            requireExpiry: false,
+            requireCVV: false,
+            requirePostalCode: false,
+            suprimirManual:false,
+            useCardIOLogo:true,
+            hideCardIOLogo:false
+          };
+          this.cardIO.scan(options).then(result=> {
+            this.numberCard = parseInt(result.cardNumber);
+            this.nameCard = result.cardholderName;
+          });
+        }
+      }
+    );
+  }
+
   goBack(){
     let options: NativeTransitionOptions = {
       direction: 'down',
@@ -87,4 +111,5 @@ export class AddCardPage {
     });
     toast.present();
   }
+  
 }

@@ -7,6 +7,7 @@ import { LoginPage } from '../pages/login/login';
 import { TabsPage } from '../pages/tabs/tabs';
 import { ProfileFotoPage } from '../pages/register/profile-foto/profile-foto';
 import { SentPage } from '../pages/tabs/transfer/sent/sent';
+import { AddCardPage } from '../pages/tabs/card/add-card/add-card';
 
 @Component({
   templateUrl: 'app.html'

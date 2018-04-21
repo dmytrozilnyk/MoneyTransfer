@@ -27,5 +27,15 @@
             <ion-input type="password" [(ngModel)]="cvv" placeholder="Código de verificacion de tarjeta"></ion-input>
         </ion-item>
     </ion-list>
+    <ion-grid>
+        <ion-row>
+            <ion-col offset-3 col-6>
+                <button ion-button class="buttonDown" (click)="cardScaner()" icon-left>
+                    <ion-icon ios="ios-card-outline" md="md-card" color="rosita"></ion-icon>
+                    Escanear Tarjeta
+                </button>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
     <button ion-button full class="bottomBoton" (click)="addCard()">AÑADIR TARJETA</button>
 </ion-content>

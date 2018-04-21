@@ -13,7 +13,7 @@
         <ion-item>
             <ion-label style="font-weight: bold">Destino</ion-label>
             <ion-select [(ngModel)]="friend" interface="popover" placeholder="Selecciona un amigo">
-                <ion-option *ngFor="let user of friends;let i = index">{{user.displayName}}</ion-option>
+                <ion-option *ngFor="let user of friends;let i = index" (ionSelect)="getId(user)">{{user.displayName}}</ion-option>
             </ion-select>
         </ion-item>
         <ion-item>

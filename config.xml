@@ -100,10 +100,14 @@
     <edit-config file="*-Info.plist" mode="merge" target="NSPhotoLibraryAddUsageDescription">
         <string>need photo library access to save pictures there</string>
     </edit-config>
+    <edit-config file="*-Info.plist" mode="merge" target="NSCameraUsageDescription">
+        <string>To scan credit cards.</string>
+    </edit-config>
     <plugin name="com.synconset.imagepicker" spec="~2.1.8">
         <variable name="PHOTO_LIBRARY_USAGE_DESCRIPTION" value="Allows users to select a profile picture for their profile." />
     </plugin>
     <plugin name="cordova-sqlite-storage" spec="^2.3.0" />
+    <plugin name="card.io.cordova.mobilesdk" spec="^2.1.0" />
     <engine name="android" spec="6.3.0" />
     <engine name="ios" spec="4.5.4" />
 </widget>

@@ -94,6 +94,20 @@ page-home {
         color: rgb(34,56,73) !important;
         background: #2aecc1 !important;
     }
+    .list {
+        margin: 0px;
+    }
+    .requestName{
+        font-style: oblique;
+        font-weight: bold;
+        font-size: 15px;
+        color: #444644;
+    }
+    .requestAmount{
+        font-weight: bold;
+        font-size: 17px;
+        color: #3049b1;
+    }
 }
 .item ion-avatar[item-end], .item ion-thumbnail[item-end] {
     margin: 8px;

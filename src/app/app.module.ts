@@ -45,6 +45,7 @@ import { Base64 } from '@ionic-native/base64';
 import { NativePageTransitions } from '@ionic-native/native-page-transitions';
 import { NgxQRCodeModule } from 'ngx-qrcode2';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner';
+import { CardIO } from '@ionic-native/card-io';
 
 
 import { RequestsProvider } from '../providers/requests/requests';
@@ -130,7 +131,8 @@ import { ChatProvider } from '../providers/chat/chat';
     UserProvider,
     ChatProvider ,
     NativePageTransitions,
-    BarcodeScanner
+    BarcodeScanner,
+    CardIO 
   ]
 })
 export class AppModule {}

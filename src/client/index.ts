@@ -114,7 +114,7 @@ export class ApiClientService {
   public getUserOperations(id:string): Observable<HttpResponse<any>> {
     let uri = `/api/queries/GetUserOperations`;
     let headers = new HttpHeaders();
-    let params = new HttpParams().set('user','resource:org.transfer.tfg.User#'+id);
+    let params = new HttpParams().set('user','resource:org.transfer.tfg.User#'+id).set('destination','resource:org.transfer.tfg.User#'+id);
     return this.sendRequest<any>('get', uri, headers, params, null);
   }
 
